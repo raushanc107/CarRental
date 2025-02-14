@@ -1,40 +1,9 @@
 <div class="filter-panel">
   <h4 class="filtertitle">Filter By</h4>
-  <div class="filter-section">
-    <h4>City</h4>
-    <select style="width: 100%;">
-      <option>Delhi-NCR</option>
-    </select>
-  </div>
-  <div class="filter-section">
-    <h4>Search</h4>
-    <div class="search">
-      <input type="text" placeholder="Search by Car Model or Brand">
-    </div>
-  </div>
-    <div class="filter-section">
-      <h4>Price Range</h4>
-      <div class="price-range">
-        <div>
-          <span>MIN</span>
-          <select>
-            <option>₹ 20,000</option>
-          </select>
-        </div>
-        <div>
-          <span>MAX</span>
-          <select>
-            <option>₹ 25,000</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="filter-section">
-      <h4>Car Availability</h4>
-      <select style="width: 100%;">
-        <option>In 3 days</option>
-      </select>
-    </div>
+  <app-city-filter></app-city-filter>
+  <app-search-filter></app-search-filter>
+  <app-price-range-filter></app-price-range-filter>
+  <app-availability-filter></app-availability-filter>
     <div class="filter-section" *ngFor="let filter of filters">
       <h4>{{ filter.title }}</h4>
       <div *ngFor="let option of filter.options" class="filter-option">

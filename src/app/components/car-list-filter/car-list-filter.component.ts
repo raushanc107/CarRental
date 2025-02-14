@@ -1,9 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CityFilterComponent } from "./city-filter/city-filter.component";
+import { SearchFilterComponent } from "./search-filter/search-filter.component";
+import { PriceRangeFilterComponent } from "./price-range-filter/price-range-filter.component";
+import { AvailabilityFilterComponent } from "./availability-filter/availability-filter.component";
 
 @Component({
   selector: 'app-car-list-filter',
-  imports: [CommonModule],
+  imports: [CommonModule, CityFilterComponent, SearchFilterComponent, PriceRangeFilterComponent, AvailabilityFilterComponent],
   templateUrl: './car-list-filter.component.html',
   styleUrl: './car-list-filter.component.scss',
 })

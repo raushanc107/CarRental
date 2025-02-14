@@ -1,0 +1,61 @@
+.modal-title{
+    margin: 0px 0px -1px;
+    color: rgb(56, 65, 80);
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 600;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-family: "Poppins" !important;
+    font-size: 18px !important;
+    line-height: 30px !important;
+    position: relative;
+}
+.modal-body{
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    padding: 0px 24px 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 80vh;
+    .citytitle{
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #868b9a;
+        padding-top: 17px;
+        padding-bottom: 0;
+        margin-bottom: 0
+    }
+    .cityList{
+        padding: 8px 0px;
+        div{
+            padding: 12px 16px;
+            font-weight: 700;
+            font-family: Poppins !important;
+            font-weight: 700 !important;
+            font-style: normal !important;
+            font-stretch: normal !important;
+            line-height: 1.15 !important;
+            letter-spacing: normal !important;
+            text-align: left !important;
+            color: #282b33 ;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .selected{
+            background-color: rgb(230 103 66);
+            border-radius: 4px;
+            color: white;
+        }
+        :hover:not(.selected){
+            background-color: #f4f8ff;
+        }
+    }
+}
