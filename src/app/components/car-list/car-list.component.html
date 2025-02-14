@@ -1,14 +1,22 @@
-<div class="car-list">
-    <app-car-card *ngFor="let car of cars" 
-      [carName]="car.carName" 
-      [imageUrl]="car.imageUrl" 
-      [fuelType]="car.fuelType" 
-      [transmission]="car.transmission" 
-      [availabilityDate]="car.availabilityDate" 
-      [isNew]="car.isNew" 
-      [isHybrid]="car.isHybrid" 
-      [fuelSavings]="car.fuelSavings" 
-      [price]="car.price" 
-      [oldPrice]="car.oldPrice">
-    </app-car-card>
+<div class="container">
+    <div class="content">
+      <app-car-list-filter></app-car-list-filter>
+      <div class="car-list-container">
+        <app-car-list-topbar [totalCars]="cars.length" location="Delhi-NCR"></app-car-list-topbar>
+        <div class="car-list">
+          <app-car-card *ngFor="let car of cars" 
+            [carName]="car.carName" 
+            [imageUrl]="car.imageUrl" 
+            [fuelType]="car.fuelType" 
+            [transmission]="car.transmission" 
+            [availabilityDate]="car.availabilityDate" 
+            [isNew]="car.isNew" 
+            [isHybrid]="car.isHybrid" 
+            [fuelSavings]="car.fuelSavings" 
+            [price]="car.price" 
+            [oldPrice]="car.oldPrice">
+          </app-car-card>
+        </div>
+      </div>
+    </div>
   </div>
