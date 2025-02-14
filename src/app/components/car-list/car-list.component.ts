@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { CarCardComponent } from '../car-card/car-card.component';
 import { CommonModule } from '@angular/common';
+import { CarListTopbarComponent } from '../car-list-topbar/car-list-topbar.component';
+import { CarListFilterComponent } from "../car-list-filter/car-list-filter.component";
 
 @Component({
   selector: 'app-car-list',
-  imports: [CarCardComponent, CommonModule],
+  imports: [CarCardComponent, CommonModule, CarListTopbarComponent, CarListFilterComponent],
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.scss',
 })
@@ -31,7 +33,7 @@ export class CarListComponent {
       transmission: 'Manual',
       availabilityDate: '20 Feb 2025',
       isNew: true,
-      isHybrid: true,
+      isHybrid: false,
       fuelSavings: 18,
       price: 28990,
       oldPrice: 30647,

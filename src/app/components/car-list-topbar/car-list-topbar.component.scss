@@ -1,0 +1,23 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    color: #5f6368;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.sort {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+select {
+    margin-left: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
