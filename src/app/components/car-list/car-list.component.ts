@@ -1,42 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CarCardComponent } from '../car-card/car-card.component';
 import { CommonModule } from '@angular/common';
 import { CarListTopbarComponent } from '../car-list-topbar/car-list-topbar.component';
-import { CarListFilterComponent } from "../car-list-filter/car-list-filter.component";
+import { CarListFilterComponent } from '../car-list-filter/car-list-filter.component';
+import { Car } from '../../models/Cars.Model';
+import { CarService } from '../../services/car.service';
+import { CityListService } from '../../services/city-list.service';
+import { City } from '../../models/ciltyList.model';
 
 @Component({
   selector: 'app-car-list',
-  imports: [CarCardComponent, CommonModule, CarListTopbarComponent, CarListFilterComponent],
+  imports: [
+    CarCardComponent,
+    CommonModule,
+    CarListTopbarComponent,
+    CarListFilterComponent,
+  ],
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.scss',
 })
-export class CarListComponent {
-  cars = [
-    {
-      carName: 'Maruti Brezza 2024',
-      imageUrl:
-        'https://imgd.aeplcdn.com/370x208/n/cw/ec/170173/dzire-2024-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80',
-      fuelType: 'Petrol',
-      transmission: 'Automatic',
-      availabilityDate: '16 Feb 2025',
-      isNew: true,
-      isHybrid: true,
-      fuelSavings: 15,
-      price: 30460,
-      oldPrice: 32647,
-    },
-    {
-      carName: 'Maruti Swift 2024',
-      imageUrl:
-        'https://imgd.aeplcdn.com/370x208/n/cw/ec/170173/dzire-2024-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80',
-      fuelType: 'Diesel',
-      transmission: 'Manual',
-      availabilityDate: '20 Feb 2025',
-      isNew: true,
-      isHybrid: false,
-      fuelSavings: 18,
-      price: 28990,
-      oldPrice: 30647,
-    },
-  ];
+export class CarListComponent implements OnInit {
+  Cars: Car[] = [];
+  constructor(
+    private carService: CarService,
+    private cityService: CityListService
+  ) {
+    this.carService.carList.subscribe((data) => {
+      this.Cars = data || [];
+    });
+  }
+  ngOnInit(): void {
+    this.cityService.currentCitySelected.subscribe((data) => {
+      if (data.id === 0) {
+        this.carService.AddCarsFromAPI();
+      } else {
+        this.carService.AddCarsByLocation(data.id);
+      }
+    });
+  }
 }
