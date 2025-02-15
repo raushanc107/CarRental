@@ -8,11 +8,11 @@
     </div>
     <div class="cityList">
         @for (i of cities; track i.id) {
-            @if(currentselection && i.name===currentselection.name){
-                <div class="selected">{{i.name}}</div>
+            @if(currentselection && i.id===currentselection.id){
+                <div class="selected">{{i.cityname}}</div>
             }
             @else {
-                <div (click)="selectCity(i)">{{i.name}}</div>
+                <div (click)="selectCity(i)">{{i.cityname}}</div>
             }
         }
     </div>

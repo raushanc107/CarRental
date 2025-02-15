@@ -1,5 +1,8 @@
 export interface City {
+  cityname: string;
   id: number;
-  name: string;
-  stateId: number;
+  cretedon?: Date;
+  updatedon?: Date;
+  isActive?: boolean;
+  isDeleted?: boolean;
 }
