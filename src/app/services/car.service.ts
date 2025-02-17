@@ -18,6 +18,15 @@ export class CarService {
     this.carListSubject.next(cities);
   }
 
+
+  public FilterByAvailability(day:number){
+      if(day===0){
+        
+      }else{
+
+      }
+  }
+
   public AddCarsFromAPI() {
     this.http.get<Car[]>(this.APIURL).subscribe((data) => {
       this.AddCars(data);

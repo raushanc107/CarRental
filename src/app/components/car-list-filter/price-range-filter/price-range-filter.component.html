@@ -3,14 +3,14 @@
     <div class="price-range">
       <div>
         <span>MIN</span>
-        <select>
-          <option>₹ 20,000</option>
+        <select [(ngModel)]="minPrice" (change)="minChange()">
+          <option *ngFor="let i of Min" [value]="i" [disabled]="isMinDisabled(i)">{{i | currency:"INR"}}</option>
         </select>
       </div>
       <div>
         <span>MAX</span>
-        <select>
-          <option>₹ 25,000</option>
+        <select [(ngModel)]="maxPrice">
+          <option *ngFor="let i of Max" [value]="i" [disabled]="i <= minPrice">{{i | currency:"INR"}}</option>
         </select>
       </div>
     </div>
