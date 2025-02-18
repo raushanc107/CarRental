@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CityFilterModelComponent } from './city-filter-model/city-filter-model.component';
 import { City } from '../../../models/ciltyList.model';
 import { CityListService } from '../../../services/city-list.service';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
   selector: 'app-city-filter',
@@ -15,8 +16,8 @@ export class CityFilterComponent {
   currentselection: City;
   private modalService = inject(NgbModal);
 
-  constructor(private cityService: CityListService) {
-    this.cityService.currentCitySelected.subscribe((data) => {
+  constructor(private filterService: FilterService) {
+    this.filterService.currentselectionSubject.subscribe((data) => {
       this.currentselection = data;
     });
   }
@@ -28,7 +29,7 @@ export class CityFilterComponent {
     modalRef.result
       .then((result) => {
         if (result) {
-          this.cityService.ChangeCity(result);
+          this.filterService.currentselectionSubject.next(result);
         }
       })
       .catch(() => {

@@ -1,6 +1,9 @@
 <div class="filter-section">
     <h4>Car Availability</h4>
-    <select style="width: 100%;">
-      <option>In 3 days</option>
+    <select style="width: 100%;" (change)="filterByAvailability()" [(ngModel)]="dropdownvalue">
+      <option value="3">In 3 days</option>
+      <option value="5">In 5 days</option>
+      <option value="7">In 7 days</option>
+      <option value="0">All Time</option>
     </select>
   </div>

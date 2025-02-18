@@ -7,6 +7,7 @@ import { Car } from '../../models/Cars.Model';
 import { CarService } from '../../services/car.service';
 import { CityListService } from '../../services/city-list.service';
 import { City } from '../../models/ciltyList.model';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-car-list',
@@ -23,14 +24,15 @@ export class CarListComponent implements OnInit {
   Cars: Car[] = [];
   constructor(
     private carService: CarService,
-    private cityService: CityListService
+    private filterService: FilterService
   ) {
     this.carService.carList.subscribe((data) => {
       this.Cars = data || [];
     });
+
   }
   ngOnInit(): void {
-    this.cityService.currentCitySelected.subscribe((data) => {
+    this.filterService.currentselectionSubject.subscribe((data) => {
       if (data.id === 0) {
         this.carService.AddCarsFromAPI();
       } else {
