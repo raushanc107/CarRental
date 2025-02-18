@@ -1,0 +1,36 @@
+<div class="container p-md-0">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="multiSlideConfig">
+      <div ngxSlickItem *ngFor="let image of multiSlideImages">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-image">
+              <img [src]="image?.img" alt="Car Image" class="img-fluid" loading="lazy">
+              <div *ngIf="image?.isNew" class="status">
+                <span class="badge new-car">New</span>
+              </div>
+            </div>
+  
+            <div class="card-details">
+              <div class="car-name" *ngIf="image?.carName">
+                <span class="font-weight-bold">{{ image.carName }}</span>
+              </div>
+  
+              <div class="details-group">
+                <span class="detail" *ngIf="image?.fuelType">Fuel: {{ image.fuelType }}</span>
+                <span class="detail" *ngIf="image?.transmission">Trans: {{ image.transmission }}</span>
+                <span class="detail" *ngIf="image?.availabilityDate">Available: {{ image.availabilityDate | date:'dd MMM yyyy' }}</span>
+                <span class="detail" *ngIf="image?.fuelSavings">Savings: {{ image.fuelSavings }} MPG</span>
+              </div>
+  
+              <div class="price-details" *ngIf="image?.price || image?.oldPrice">
+                <div class="price">
+                  <span class="current-price">{{ image.price | currency }}</span>
+                  <span class="old-price" *ngIf="image?.oldPrice">{{ image.oldPrice | currency }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>

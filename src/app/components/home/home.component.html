@@ -1,0 +1,188 @@
+<div class="carousel-container">
+
+    <div class="hero-box">
+        <div class="lb-header">
+            <h3>Subscriptions</h3>
+        </div>
+        <div class="subscriptions" >
+            <form class="subscriptions">
+                <div class="u-form-group">
+                    <input name="subscriptionCity" type="text" placeholder="City" />
+                </div>
+                <div class="u-form-group">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" data-bs-ride="carousel"
+        data-bs-interval="3000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="image-container position-relative">
+                    <img src="../../../assets/images/ST_LT_BG_2.png" class="background-image w-100"
+                        alt="Background Image">
+                    <img src="../../../assets/images/LT_Desktop_3_FG.png"
+                        class="foreground-image position-absolute w-50" alt="Foreground Image">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="image-container position-relative">
+                    <img src="../../../assets/images/ST_LT_BG_3.png" class="background-image w-100"
+                        alt="Background Image">
+                    <img src="../../../assets/images/LT_Desktop_2_FG_7day.webp"
+                        class="foreground-image position-absolute w-50" alt="Foreground Image">
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+
+<br />
+<!-- Adding the feature slicky slider -->
+<div class="container p-0">
+    <h2 class="header-2 txt-light">Featured</h2>
+</div>
+<app-slider [multiSlideConfig]="multiSlideConfig" [multiSlideImages]="multiSlideImages"></app-slider>
+<br />
+<!-- Adding the top cars slicky slider -->
+<div class="container p-0">
+    <h2 class="header-2 txt-light">Top Selling Cars</h2>
+</div>
+<app-slider [multiSlideConfig]="multiSlideConfig" [multiSlideImages]="multiSlideCarImages"></app-slider>
+<br/>
+<!-- Adding the Features slicky slider -->
+<div class="container p-0">
+    <h2 class="header-2 txt-light">Offers</h2>
+</div>
+<app-slider [multiSlideConfig]="multiSlideConfig" [multiSlideImages]="multiSlideOffers"></app-slider>
+<br/><br/>
+
+<!-- Adding how it works -->
+<div class="container p-0">
+    <h2 class="header-2 txt-light" id="how-it-works">How it works</h2>
+</div>
+<div class="hiw-tab only-open" >  
+    <div class="hiw-tabs" value="0">
+        <div>
+            <div style="width: 100%; position: relative; text-align: initial;">
+                <div class="tab-content-section">
+                    <ul>
+                        <li class="odd-li">
+                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
+                                    style="min-width: 50px; min-height: 50px;"></div>
+                            <div class="img-details"><img loading="lazy"
+                                    src="https://www.revv.co.in/grapheneImages/newopen/ic-howit-work-1@2x.png"
+                                    style="width: 62px; top: -12px; position: relative;">
+                                <div class="details">
+                                    <h5><span class="d-desktop-none d-block index-number"></span >Select &amp; Reserve
+                                    </h5>
+                                    <p>Pick your car model and reserve online</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="even-li">
+                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-2.svg"
+                                    style="min-width: 50px; min-height: 50px;"></div>
+                            <div class="img-details"><img loading="lazy"
+                                    src="/grapheneImages/newopen/ic-howit-work-2@2x.png"
+                                    style="width: 62px; top: -12px; position: relative;">
+                                <div class="details">
+                                    <h5><span class="d-desktop-none d-block index-number"></span>Super Fast Processing
+                                    </h5>
+                                    <p>We will call you to understand your preferences, basic KYC, Refundable Security
+                                        Deposit etc. (No CIBIL Check Required)</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="odd-li">
+                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-3.svg"
+                                    style="min-width: 50px; min-height: 50px;"></div>
+                            <div class="img-details"><img loading="lazy"
+                                    src="/grapheneImages/newopen/ic-howit-work-3@2x.png"
+                                    style="width: 62px; top: -12px; position: relative;">
+                                <div class="details">
+                                    <h5><span class="d-desktop-none d-block index-number"></span>Preparing Your Car
+                                    </h5>
+                                    <p>After detailed quality checks and deep cleaning, your car is ready for delivery
+                                        within 10-14 days</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="even-li">
+                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-4.svg"
+                                    style="min-width: 50px; min-height: 50px;"></div>
+                            <div class="img-details"><img loading="lazy"
+                                    src="/grapheneImages/newopen/ic-howit-work-4@2x.png"
+                                    style="width: 62px; top: -12px; position: relative;">
+                                <div class="details">
+                                    <h5><span class="d-desktop-none d-block index-number"></span>Home Delivery</h5>
+                                    <p>Get your car delivered at your doorstep</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="odd-li">
+                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-5.svg"
+                                    style="min-width: 50px; min-height: 50px;"></div>
+                            <div class="img-details"><img loading="lazy"
+                                    src="/grapheneImages/newopen/ic-howit-work-5@2x.png"
+                                    style="width: 62px; top: -12px; position: relative;">
+                                <div class="details">
+                                    <h5><span class="d-desktop-none d-block index-number"></span>Hassle Free Experience
+                                    </h5>
+                                    <p>Enjoy your car! We'll take care of routine service &amp; insurance claims with
+                                        doorstep service</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="even-li">
+                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-6.svg"
+                                    style="min-width: 50px; min-height: 50px;"></div>
+                            <div class="img-details"><img loading="lazy"
+                                    src="/grapheneImages/newopen/ic-howit-work-6@2x.png"
+                                    style="width: 62px; top: -12px; position: relative;">
+                                <div class="details">
+                                    <h5><span class="d-desktop-none d-block index-number"></span>Return Anytime or
+                                        Extend</h5>
+                                    <p>Continue using the car or return it anytime.</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;">
+                <div></div>
+            </div>
+            <div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;">
+                <div></div>
+            </div>
+            <div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;">
+                <div></div>
+            </div>
+            <div style="width: 100%; position: relative; text-align: initial; height: 0px; overflow: hidden;">
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
