@@ -1,0 +1,118 @@
+
+  /* Header */
+  .heading {
+    background-color: #4e4b91;  /* Dark purple background */
+    padding: 7px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color: #fff;  /* White text */
+  }
+  
+  /* Container for login and register forms */
+  .loginsignUp-container {
+    max-width: 400px;  /* Reduced max-width for smaller container */
+    margin: 30px auto;
+    padding: 30px;  /* Reduced padding */
+    background-color: #fff;  /* White background for the form */
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);  /* Slightly smaller shadow */
+  }
+  
+  /* Form Heading (REGISTER or LOGIN) */
+  .loginsignUp-container h2 {
+    color: #6a3e9c;  /* Purple text */
+    text-align: center;
+    margin-bottom: 15px;  /* Reduced margin-bottom */
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;  /* Slightly smaller font size */
+    margin-top: 0;
+  }
+  
+  /* Form Input Fields */
+  .form-group {
+    margin-bottom: 15px;  /* Reduced bottom margin */
+  }
+  
+  .form-group input {
+    outline: none;
+    width: 100%;
+    padding: 12px 0px 10px 15px;  /* Reduced padding */
+    border-radius: 6px;
+    border: 1px solid #4e4b91;  /* Dark purple border */
+    background-color: #f5f5f5;  /* Light gray background for inputs */
+    color: #333;  /* Dark text color inside the input fields */
+  }
+  
+  /* Hover effects on input fields */
+  .form-group input:focus {
+    border-color: #318aff;  /* Bright blue border when focused */
+    background-color: #f0f8ff;  /* Very light blue background when focused */
+  }
+  
+  /* Placeholder text inside input fields */
+  .form-group input::placeholder {
+    color: #888;  /* Gray color for placeholder text */
+    font-style: italic;
+  }
+  
+  /* Submit Button Styling */
+  button {
+    width: 100%;
+    padding: 12px;  /* Reduced padding */
+    border: none;
+    border-radius: 6px;
+    background-color: #318aff;  /* Bright blue background */
+    color: white;
+    font-size: 16px;  /* Slightly smaller font size */
+    font-weight: bold;
+    transition: 0.3s ease;
+  }
+  
+  /* Hover effect on button */
+  button:hover {
+    background-color: #0056b3;  /* Dark blue when hovered */
+  }
+  
+  /* Text under forms to switch between login and register */
+  p {
+    margin-top: 12px;  /* Reduced top margin */
+    text-align: center;
+    cursor: pointer;
+    color: #333;  /* Dark text color */
+  }
+  
+  /* Highlighted link text */
+  .highlighted {
+    text-decoration: underline;
+    color: #318aff;  /* Bright blue link color */
+  }
+  
+  /* Hover effect on the highlighted text */
+  .highlighted:hover {
+    color: #0056b3;  /* Dark blue on hover */
+  }
+  
+  /* Error message styles */
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 600px) {
+    .loginsignUp-container {
+      padding: 20px;
+    }
+  
+    .heading h2 {
+      font-size: 28px;
+    }
+  
+    button {
+      font-size: 16px;
+    }
+  }
+  

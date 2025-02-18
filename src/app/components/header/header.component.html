@@ -59,8 +59,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active ms-4 me-4" aria-current="page" href="#"> <i
+                    <a *ngIf="!user" class="nav-link active ms-4 me-4" aria-current="page" (click)="Login()" > <i
                             class="bi bi-person-circle"></i> Login or Signup</a>
+                    <p *ngIf="user">{{user.firstName}} {{user.lastName}}</p>
                 </li>
             </ul>
         </div>
