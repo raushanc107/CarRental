@@ -9,7 +9,7 @@
       </div>
       <div>
         <span>MAX</span>
-        <select [(ngModel)]="maxPrice">
+        <select [(ngModel)]="maxPrice" (change)="maxChange()">
           <option *ngFor="let i of Max" [value]="i" [disabled]="i <= minPrice">{{i | currency:"INR"}}</option>
         </select>
       </div>

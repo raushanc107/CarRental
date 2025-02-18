@@ -6,6 +6,8 @@ import { PriceRangeFilterComponent } from './price-range-filter/price-range-filt
 import { AvailabilityFilterComponent } from './availability-filter/availability-filter.component';
 import { CarService } from '../../services/car.service';
 import { Car } from '../../models/Cars.Model';
+import { FormsModule } from '@angular/forms';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-car-list-filter',
@@ -15,6 +17,7 @@ import { Car } from '../../models/Cars.Model';
     SearchFilterComponent,
     PriceRangeFilterComponent,
     AvailabilityFilterComponent,
+    FormsModule,
   ],
   templateUrl: './car-list-filter.component.html',
   styleUrl: './car-list-filter.component.scss',
@@ -24,45 +27,54 @@ export class CarListFilterComponent {
     {
       title: 'Segment',
       options: [
-        { name: 'Hatchback', count: 0 },
-        { name: 'Sedan', count: 0 },
-        { name: 'SUV', count: 0 },
+        { name: 'Hatchback', checked: false, count: 0 },
+        { name: 'Sedan', checked: false, count: 0 },
+        { name: 'SUV', checked: false, count: 0 },
       ],
     },
     {
       title: 'Fuel',
       options: [
-        { name: 'Diesel', count: 0 },
-        { name: 'Petrol', count: 0 },
+        { name: 'Diesel', checked: false, count: 0 },
+        { name: 'Petrol', checked: false, count: 0 },
       ],
     },
     {
       title: 'Transmission',
       options: [
-        { name: 'Automatic', count: 0 },
-        { name: 'Manual', count: 0 },
+        { name: 'Automatic', checked: false, count: 0 },
+        { name: 'Manual', checked: false, count: 0 },
       ],
     },
     {
       title: 'Brand',
       options: [
-        { name: 'Mahindra', count: 0 },
-        { name: 'Maruti Suzuki', count: 0 },
-        { name: 'Tata', count: 0 },
-        { name: 'Hyundai', count: 0 },
-        { name: 'Honda', count: 0 },
-        { name: 'Nissan', count: 0 },
-        { name: 'Ford', count: 0 },
-        { name: 'Toyota', count: 0 },
-        { name: 'MG', count: 0 },
-        { name: 'Kia', count: 0 },
+        { name: 'Mahindra', checked: false, count: 0 },
+        { name: 'Maruti Suzuki', checked: false, count: 0 },
+        { name: 'Tata', checked: false, count: 0 },
+        { name: 'Hyundai', checked: false, count: 0 },
+        { name: 'Honda', checked: false, count: 0 },
+        { name: 'Nissan', checked: false, count: 0 },
+        { name: 'Ford', checked: false, count: 0 },
+        { name: 'Toyota', checked: false, count: 0 },
+        { name: 'MG', checked: false, count: 0 },
+        { name: 'Kia', checked: false, count: 0 },
       ],
     },
   ];
 
-  constructor(private carService: CarService) {
+  constructor(
+    private carService: CarService,
+    private filterService: FilterService
+  ) {
     this.carService.carList.subscribe((data) => {
       this.updateFilter(data || []);
+    });
+
+    this.filterService.Filters.subscribe((data) => {
+      this.filters = data;
+      this.filterService.FilterValue = data;
+      this.filterService.PerformFilter('other filters');
     });
   }
 
@@ -79,6 +91,8 @@ export class CarListFilterComponent {
       this.updateOptionCount('Fuel', car.carFuelType);
       this.updateOptionCount('Segment', car.carSegment);
     });
+
+    //this.filterService.Filters.next(this.filters);
   }
 
   updateOptionCount(filterTitle: string, optionName: string) {
@@ -88,8 +102,12 @@ export class CarListFilterComponent {
       if (option) {
         option.count += 1;
       } else {
-        filter.options.push({ name: optionName, count: 1 });
+        filter.options.push({ name: optionName, checked: false, count: 1 });
       }
     }
+  }
+
+  filterUpdated() {
+    this.filterService.Filters.next(this.filters);
   }
 }

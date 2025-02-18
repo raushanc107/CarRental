@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CarService } from '../../../services/car.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { FilterService } from '../../../services/filter.service';
 
 @Component({
   selector: 'app-availability-filter',
@@ -10,10 +11,16 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrl: './availability-filter.component.scss',
 })
 export class AvailabilityFilterComponent {
-  dropdownvalue: number = 3;
-  constructor(private carservice: CarService) {}
+  dropdownvalue: number = 0;
+  constructor(private filterService: FilterService) {
+    this.filterService.availabilitySubject.subscribe((data) => {
+      this.filterService.availability = data;
+      this.filterService.PerformFilter('availability filter');
+    });
+    this.filterService.availabilitySubject.next(this.dropdownvalue);
+  }
 
   filterByAvailability() {
-    
+    this.filterService.availabilitySubject.next(this.dropdownvalue);
   }
 }
