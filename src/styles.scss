@@ -2,5 +2,24 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+body.dark-mode {
+    background-color: #414243;
+    color: #dfe6e9;
+    .hero-box{
+        background-color: #414243;
+        color: #dfe6e9;
+    }
+    .card {
+        // width: 40vw;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  body.light-mode {
+    background-color: #dfe6e9;
+    color: #2d3436;
+  }
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+

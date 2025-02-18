@@ -173,22 +173,7 @@ input[type="text"]:focus {
   margin-bottom: 15px;
 }
 
-.u-form-group input {
-  padding: 12px;
-  width: 100%;
-  border: 1px solid #ced4da;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-
-.u-form-group input:focus {
-  border-color: #80bdff;
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
-}
-
-.u-form-group button {
+.u-form-group a {
   width: 100%;
   background-image:linear-gradient(270deg, rgb(28, 171, 162) 25%, rgb(28, 127, 171));
   border: none;
@@ -201,7 +186,7 @@ input[type="text"]:focus {
   transition: all 0.3s ease;
 }
 
-.u-form-group button:hover {
+.u-form-group a:hover {
   background-color: #0056b3;
   transform: translateY(-2px); /* Slight lift on hover */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
