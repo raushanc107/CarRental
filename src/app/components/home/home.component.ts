@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { SliderComponent } from './slider/slider.component';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
-import { FooterComponent } from '../../footer/footer.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { City } from '../../models/ciltyList.model';
+import { CityFilterModelComponent } from '../car-list-filter/city-filter/city-filter-model/city-filter-model.component';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,15 @@ import { FooterComponent } from '../../footer/footer.component';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
+
+  currentselection: City;
+  private modalService = inject(NgbModal);
+  constructor(private filterService: FilterService) {
+    this.filterService.currentselectionSubject.subscribe((data) => {
+      this.currentselection = data;
+    });
+  }
+
   multiSlideConfig = {
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -97,16 +108,55 @@ export class HomeComponent {
       oldPrice: 30647,
     },
     {
-      img: 'https://revvselfdrivecar.s3.us-west-2.amazonaws.com/open-feb24/Grand+Vitara_02.png',
+      carName: 'Maruti Swift 2024',
+      img: 'https://imgd.aeplcdn.com/370x208/n/cw/ec/170173/dzire-2024-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80',
+      fuelType: 'Diesel',
+      transmission: 'Manual',
+      availabilityDate: '20 Feb 2025',
+      isNew: true,
+      isHybrid: true,
+      fuelSavings: 18,
+      price: 28990,
+      oldPrice: 30647,
     },
     {
-      img: 'https://revvselfdrivecar.s3.us-west-2.amazonaws.com/open-feb24/Grand+Vitara_02.png',
+      carName: 'Maruti Swift 2024',
+      img: 'https://imgd.aeplcdn.com/370x208/n/cw/ec/170173/dzire-2024-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80',
+      fuelType: 'Diesel',
+      transmission: 'Manual',
+      availabilityDate: '20 Feb 2025',
+      isNew: true,
+      isHybrid: true,
+      fuelSavings: 18,
+      price: 28990,
+      oldPrice: 30647,
     },
     {
-      img: 'https://revvselfdrivecar.s3.us-west-2.amazonaws.com/open-feb24/Grand+Vitara_02.png',
-    },
-    {
-      img: 'https://revvselfdrivecar.s3.us-west-2.amazonaws.com/open-feb24/Grand+Vitara_02.png',
+      carName: 'Maruti Swift 2024',
+      img: 'https://imgd.aeplcdn.com/370x208/n/cw/ec/170173/dzire-2024-exterior-right-front-three-quarter-3.jpeg?isig=0&q=80',
+      fuelType: 'Diesel',
+      transmission: 'Manual',
+      availabilityDate: '20 Feb 2025',
+      isNew: true,
+      isHybrid: true,
+      fuelSavings: 18,
+      price: 28990,
+      oldPrice: 30647,
     },
   ];
+
+  openModel() {
+    const modalRef = this.modalService.open(CityFilterModelComponent);
+    modalRef.componentInstance.currentselection = this.currentselection;
+
+    modalRef.result
+      .then((result) => {
+        if (result) {
+          this.filterService.currentselectionSubject.next(result);
+        }
+      })
+      .catch(() => {
+        console.log('Modal dismissed');
+      });
+  }
 }

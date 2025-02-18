@@ -7,50 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto me-5">
-                <!-- <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle aria-controls ms-4 me-4" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Car Rental
-                    </a>
-                    <ul class="dropdown-menu p-0 ">
-                        <table class="table mb-0">
-                            <tbody>
-                                <tr>
-                                    <td><a class="dropdown-item" href="#">Rental 1</a></td>
-                                    <td><a class="dropdown-item" href="#">Rental 2</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a class="dropdown-item" href="#">Rental 3</a></td>
-                                    <td><a class="dropdown-item" href="#">Rental 4</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ul>
-                </li> -->
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle aria-controls ms-4 me-4" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Car Subscription
-                    </a>
-                    <ul class="dropdown-menu p-0">
-                        <table class="table mb-0">
-                            <tbody>
-                                <tr>
-                                    <td><a class="dropdown-item" href="#">Subscription 1</a></td>
-                                    <td><a class="dropdown-item" href="#">Subscription 2</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a class="dropdown-item" href="#">Subscription 3</a></td>
-                                    <td><a class="dropdown-item" href="#">Subscription 4</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ul>
+                
+                <li class="nav-item">
+                    <a class="nav-link active ms-4 me-4" href="/car-list/{{0}}">Car Subscription</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active ms-4 me-4"  (click)="onNavigate('how-it-works')" style="cursor: pointer;">How it
+                <li class="nav-item" *ngIf="isHomePage">
+                    <a class="nav-link active ms-4 me-4" (click)="onNavigate('how-it-works')"
+                        style="cursor: pointer;">How it
                         works</a>
                 </li>
 
@@ -61,6 +25,9 @@
                 <li class="nav-item">
                     <a class="nav-link active ms-4 me-4" aria-current="page" href="#"> <i
                             class="bi bi-person-circle"></i> Login or Signup</a>
+                </li>
+                <li class="nav-item">
+                    <input type="checkbox" [checked]="darkMode$ | async" (change)="onToggle()" />
                 </li>
             </ul>
         </div>
