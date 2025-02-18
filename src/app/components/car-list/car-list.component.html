@@ -4,7 +4,7 @@
       <div class="car-list-container">
         <app-car-list-topbar></app-car-list-topbar>
         <div class="car-list">
-          <app-car-card *ngFor="let car of Cars" [Car]="car">
+          <app-car-card *ngFor="let car of Cars" [Car]="car" (click)="OpenCarDetail(car.carId,car.cityId)">
           </app-car-card>
         </div>
       </div>

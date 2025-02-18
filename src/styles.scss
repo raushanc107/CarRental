@@ -1,25 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}/* You can add global styles to this file, and also import other style files */
 body{
     font-family: 'Roboto', sans-serif;
 }
 body.dark-mode {
-    background-color: #414243;
-    color: #dfe6e9;
-    .hero-box{
-        background-color: #414243;
-        color: #dfe6e9;
-    }
-    .card {
-        // width: 40vw;
-        background: white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+  background-color: #414243;
+  color: #dfe6e9;
+  .hero-box{
+      background-color: #414243;
+      color: #dfe6e9;
   }
-  
-  body.light-mode {
-    background-color: #dfe6e9;
-    color: #2d3436;
+  .card {
+      // width: 40vw;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
+}
+
+body.light-mode {
+  background-color: #dfe6e9;
+  color: #2d3436;
+}
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
-
