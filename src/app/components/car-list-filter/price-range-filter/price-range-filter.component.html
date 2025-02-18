@@ -1,0 +1,17 @@
+<div class="filter-section">
+    <h4>Price Range</h4>
+    <div class="price-range">
+      <div>
+        <span>MIN</span>
+        <select [(ngModel)]="minPrice" (change)="minChange()">
+          <option *ngFor="let i of Min" [value]="i" [disabled]="isMinDisabled(i)">{{i | currency:"INR"}}</option>
+        </select>
+      </div>
+      <div>
+        <span>MAX</span>
+        <select [(ngModel)]="maxPrice" (change)="maxChange()">
+          <option *ngFor="let i of Max" [value]="i" [disabled]="i <= minPrice">{{i | currency:"INR"}}</option>
+        </select>
+      </div>
+    </div>
+  </div>

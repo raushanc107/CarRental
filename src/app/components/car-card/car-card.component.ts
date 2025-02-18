@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Car } from '../../models/Cars.Model';
 
 @Component({
   selector: 'app-car-card',
@@ -8,14 +9,15 @@ import { Component, Input } from '@angular/core';
   styleUrl: './car-card.component.scss',
 })
 export class CarCardComponent {
-  @Input() carName!: string;
-  @Input() imageUrl!: string;
-  @Input() fuelType!: string;
-  @Input() transmission!: string;
-  @Input() availabilityDate!: string;
-  @Input() isNew!: boolean;
-  @Input() isHybrid!: boolean;
-  @Input() fuelSavings!: number;
-  @Input() price!: number;
-  @Input() oldPrice?: number;
+  @Input() Car!: Car;
+
+  calculateOldPrice(amount: number, discount: number): number {
+    return amount - amount * (discount / 100);
+  }
+
+  calculateAvailabilityDate(day: number): Date {
+    const date = new Date();
+    date.setDate(date.getDate() + day);
+    return date;
+  }
 }

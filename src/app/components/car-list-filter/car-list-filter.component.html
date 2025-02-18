@@ -1,0 +1,13 @@
+<div class="filter-panel">
+  <h4 class="filtertitle">Filter By</h4>
+  <app-city-filter></app-city-filter>
+  <app-search-filter></app-search-filter>
+  <app-price-range-filter></app-price-range-filter>
+  <app-availability-filter></app-availability-filter>
+    <div class="filter-section" *ngFor="let filter of filters">
+      <h4>{{ filter.title }}</h4>
+      <div *ngFor="let option of filter.options" class="filter-option">
+        <input type="checkbox" [disabled]="option.count === 0" [(ngModel)]="option.checked" (change)="filterUpdated()"> <span class="checkboxname">{{ option.name }}</span> <span class="checkboxcount"> ({{ option.count }})</span>
+      </div>
+    </div>
+  </div>

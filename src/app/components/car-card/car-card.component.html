@@ -1,19 +1,19 @@
 <div class="card">
-    <div class="availability">Available from {{ availabilityDate }}</div>
-    <div class="new-tag" *ngIf="isNew">Brand new car</div>
+    <div class="availability">Available from {{ calculateAvailabilityDate(Car.carAvailableIn) | date:"dd MMM yyyy"}}</div>
+    <div class="new-tag" *ngIf="Car.carIsNew">Brand new car</div>
     <div class="car-image">
-        <img [src]="imageUrl" [alt]="carName">
+        <img [src]="Car.carImage" [alt]="Car.carName">
     </div>
     <div class="car-details">
-        <h2>{{ carName }}</h2>
+        <h2>{{ Car.carName }}</h2>
         <div class="specs">
-            <span>🚗 {{ fuelType }}</span>
-            <span>⚙️ {{ transmission }}</span>
+            <span>🚗 {{ Car.carFuelType }}</span>
+            <span>⚙️ {{ Car.carTransmissionType }}</span>
         </div>
-        <div class="hybrid" *ngIf="isHybrid">🌿 Hybrid Model - Save {{ fuelSavings }}% on fuel</div>
+        <div class="hybrid" *ngIf="Car.carIsHybrid">🌿 Hybrid Model - Save 15% on fuel</div>
     </div>
     <div class="pricing-container">
-        <div class="pricing">₹ {{ price }}<span>/month</span></div>
-        <div class="old-price" *ngIf="oldPrice">₹ {{ oldPrice }}</div>
+        <div class="pricing">₹ {{ Car.carAmount }}<span>/month</span></div>
+        <div class="old-price" *ngIf="Car.carDiscount">₹ {{ calculateOldPrice(Car.carAmount,Car.carDiscount) }}</div>
     </div>
 </div>

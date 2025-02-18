@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h3 class="modal-title">Select City</h3>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="citytitle">
+        Top Cities
+    </div>
+    <div class="cityList">
+        @for (i of cities; track i.id) {
+            @if(currentselection && i.id===currentselection.id){
+                <div class="selected">{{i.cityname}}</div>
+            }
+            @else {
+                <div (click)="selectCity(i)">{{i.cityname}}</div>
+            }
+        }
+    </div>
+
+</div>

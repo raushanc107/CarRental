@@ -1,11 +1,12 @@
 .card {
-    width: 600px;
+    // width: 40vw;
     background: white;
     border-radius: 10px;
     display: flex;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -63,7 +64,7 @@
 .pricing-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    // align-items: flex-end;
     justify-content: center;
     min-width: 150px;
     margin-top: 10px;
@@ -80,5 +81,5 @@
 .old-price {
     text-decoration: line-through;
     color: gray;
-    font-size: 16px;
+    font-size: 20px;
 }
