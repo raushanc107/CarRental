@@ -5,7 +5,7 @@ import { AdminAuthGuard } from './gaurds/Auth.guard';
 
 export const routes: Routes = [
   {
-    path: 'car-list',
+    path: 'car-list/:id',
     loadComponent: () =>
       import('./components/car-list/car-list.component').then(
         (c) => c.CarListComponent
@@ -26,4 +26,5 @@ export const routes: Routes = [
       ),
     canActivate: [AdminAuthGuard],
   },
+  { path:'',redirectTo:'/home',pathMatch:'full'},
 ];

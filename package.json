@@ -24,6 +24,7 @@
     "@popperjs/core": "^2.11.8",
     "@types/jquery": "^3.5.32",
     "@types/slick-carousel": "^1.6.40",
+    "angular-dark-mode": "^3.1.0",
     "bootstrap": "^5.3.3",
     "jquery": "^3.7.1",
     "ngx-slick-carousel": "^19.0.0",

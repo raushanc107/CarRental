@@ -4,13 +4,18 @@
         <div class="lb-header">
             <h3>Subscriptions</h3>
         </div>
-        <div class="subscriptions" >
+        <div class="subscriptions">
             <form class="subscriptions">
                 <div class="u-form-group">
-                    <input name="subscriptionCity" type="text" placeholder="City" />
+                    <!-- <input name="subscriptionCity" type="text" placeholder="City" /> -->
+                    <div class="filter-section">
+                        <h3 style="width: 100%;" (click)="openModel()">
+                            {{currentselection.cityname}}
+                        </h3>
+                    </div>
                 </div>
                 <div class="u-form-group">
-                    <button type="submit">Search</button>
+                    <a type="submit" href="/car-list/{{currentselection.id}}">Search</a>
                 </div>
             </form>
         </div>
@@ -41,7 +46,6 @@
                         class="foreground-image position-absolute w-50" alt="Foreground Image">
                 </div>
             </div>
-
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
             data-bs-slide="prev">
@@ -69,39 +73,40 @@
     <h2 class="header-2 txt-light">Top Selling Cars</h2>
 </div>
 <app-slider [multiSlideConfig]="multiSlideConfig" [multiSlideImages]="multiSlideCarImages"></app-slider>
-<br/>
+<br />
 <!-- Adding the Features slicky slider -->
 <div class="container p-0">
     <h2 class="header-2 txt-light">Offers</h2>
 </div>
 <app-slider [multiSlideConfig]="multiSlideConfig" [multiSlideImages]="multiSlideOffers"></app-slider>
-<br/><br/>
+<br /><br />
 
 <!-- Adding how it works -->
 <div class="container p-0">
     <h2 class="header-2 txt-light" id="how-it-works">How it works</h2>
 </div>
-<div class="hiw-tab only-open" >  
+<div class="hiw-tab only-open">
     <div class="hiw-tabs" value="0">
         <div>
             <div style="width: 100%; position: relative; text-align: initial;">
                 <div class="tab-content-section">
                     <ul>
                         <li class="odd-li">
-                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
+                            <div class="left-icon"><img loading="lazy"
+                                    src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
                                     style="min-width: 50px; min-height: 50px;"></div>
                             <div class="img-details"><img loading="lazy"
                                     src="https://www.revv.co.in/grapheneImages/newopen/ic-howit-work-1@2x.png"
                                     style="width: 62px; top: -12px; position: relative;">
                                 <div class="details">
-                                    <h5><span class="d-desktop-none d-block index-number"></span >Select &amp; Reserve
+                                    <h5><span class="d-desktop-none d-block index-number"></span>Select &amp; Reserve
                                     </h5>
                                     <p>Pick your car model and reserve online</p>
                                 </div>
                             </div>
                         </li>
                         <li class="even-li">
-                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-2.svg"
+                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
                                     style="min-width: 50px; min-height: 50px;"></div>
                             <div class="img-details"><img loading="lazy"
                                     src="/grapheneImages/newopen/ic-howit-work-2@2x.png"
@@ -115,7 +120,7 @@
                             </div>
                         </li>
                         <li class="odd-li">
-                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-3.svg"
+                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
                                     style="min-width: 50px; min-height: 50px;"></div>
                             <div class="img-details"><img loading="lazy"
                                     src="/grapheneImages/newopen/ic-howit-work-3@2x.png"
@@ -129,7 +134,7 @@
                             </div>
                         </li>
                         <li class="even-li">
-                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-4.svg"
+                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
                                     style="min-width: 50px; min-height: 50px;"></div>
                             <div class="img-details"><img loading="lazy"
                                     src="/grapheneImages/newopen/ic-howit-work-4@2x.png"
@@ -141,7 +146,7 @@
                             </div>
                         </li>
                         <li class="odd-li">
-                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-5.svg"
+                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
                                     style="min-width: 50px; min-height: 50px;"></div>
                             <div class="img-details"><img loading="lazy"
                                     src="/grapheneImages/newopen/ic-howit-work-5@2x.png"
@@ -155,7 +160,7 @@
                             </div>
                         </li>
                         <li class="even-li">
-                            <div class="left-icon"><img loading="lazy" src="/grapheneImages/newopen/ic-web-x-6.svg"
+                            <div class="left-icon"><img loading="lazy" src="https://www.revv.co.in/grapheneImages/newopen/ic-web-x-1.svg"
                                     style="min-width: 50px; min-height: 50px;"></div>
                             <div class="img-details"><img loading="lazy"
                                     src="/grapheneImages/newopen/ic-howit-work-6@2x.png"
@@ -185,4 +190,3 @@
         </div>
     </div>
 </div>
-
