@@ -1,0 +1,131 @@
+.carousel {
+    width: 100%;
+    //overflow: hidden;
+}
+
+.carousel img {
+    max-width: 80%;
+} 
+
+::ng-deep .slick-prev {
+  left: 10px; 
+}
+
+::ng-deep .slick-next {
+  right: 10px; 
+}
+
+::ng-deep .slick-prev:before,
+::ng-deep .slick-next:before {
+  color: #0ebaba; 
+  font-size: 30px;
+}
+
+::ng-deep .slick-prev,
+::ng-deep .slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  border: none;
+  background-color: transparent;  
+  color: #fff;  
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px; 
+}
+
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border: none; /* Remove default card border */
+    margin: 0px 10px; /* Add margin for spacing between cards */
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+  }
+  
+  .card-image {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-image img {
+    width: 100%;
+    object-fit: cover; 
+    display: block;
+  }
+
+.details-group {
+    display: flex;
+    flex-direction: column;
+    
+    .detail {
+      font-size: 1rem;
+      color: #555;  
+    }
+  
+    .detail strong {
+      font-weight: bold; 
+    }
+  
+    .detail:nth-child(odd) {
+      color: #0e76a8; 
+    }
+  }
+  
+  /* Style the price details */
+  .price-details {
+    .price {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+  
+    .current-price {
+      font-size: 1.5rem;
+      color: #28a745;  
+      font-weight: 600;
+    }
+  
+    .old-price {
+      font-size: 1rem;
+      color: #6c757d; 
+      text-decoration: line-through;
+      margin-left: 10px;  
+    }
+  
+    .current-price,
+    .old-price {
+      transition: all 0.3s ease-in-out;
+    }
+  
+    .current-price:hover {
+      color: #218838;  
+    }
+  
+    .old-price:hover {
+      color: #495057;  
+    }
+  }
+  
+  /* Optional: Add a separator line between price and details */
+  .price-details::before {
+    content: '';
+    display: block;
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+    padding-top: 10px;
+  }
+  
+  
+  
+ 

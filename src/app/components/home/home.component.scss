@@ -1,0 +1,386 @@
+.carousel-item {
+    position: relative;
+    
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: auto;  
+      overflow: hidden; 
+      
+      .background-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover; 
+      }
+  
+      .foreground-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;  
+        height: auto;
+        z-index: 1; 
+        object-fit: contain;
+      }
+    }
+  
+  }
+
+  .header-2 {
+    font-size: 26px;
+    line-height: 1.5;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    margin: 0;
+    color: rgba(152, 166, 179, .81);
+}
+
+
+
+/* styles.css or component's CSS */
+/* Hero Box */
+.hero-box {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.9); 
+  color: #333; 
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s ease-in-out;
+  width: 90%;
+  max-width: 500px; 
+  left: 10%; 
+  top: 15%; 
+  text-align: center;
+  overflow-y: auto; 
+ // max-height: 70vh; /* Prevent overflow */
+}
+
+/* Hero Box Buttons */
+.hero-box .btn-toggle {
+  color: black;
+  font-size: 16px; /* Slightly smaller font */
+  font-weight: 500; /* Medium weight */
+  margin: 0 10px; /* Adjusted margin */
+  cursor: pointer;
+  text-decoration: none;
+  padding: 15px 28px; /* Adjusted padding */
+  transition: all 0.3s ease; /* Transition all properties */
+  border-radius: 18px; /* More rounded corners */
+  border: none;
+  background-color: #fff;
+}
+
+.hero-box .btn-toggle:hover {
+  background-color: grey; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero-box .btn-toggle.active {
+  background-color: #28a745; /* Success green */
+}
+
+
+/* Input Field */
+input[type="text"] {
+  padding: 12px 15px;
+  width: 90%;
+  max-width: 400px;
+  font-size: 16px;
+  border-radius: 30px;
+  margin-top: 15px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  border-color: #80bdff; /* Highlight on focus */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Subtle shadow on focus */
+}
+
+/* Hero Box Button */
+.hero-box button {
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px; /* Added margin */
+}
+
+.hero-box button:hover {
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.hero-box button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); /* Subtle shadow on focus */
+}
+
+/* Label Header */
+.lb-header {
+  color: #fff;
+  background-color: rgb(73, 166, 186);
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #dee2e6; /* Add a subtle border */
+}
+
+.lb-header a {
+  margin: 0 15px;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #555; /* Darker link color */
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.lb-header .active {
+  background-color: linear-gradient(270deg, rgb(28, 171, 162) 25%, rgb(28, 127, 171)); /* Primary blue for active */
+  color: white;
+}
+
+.lb-header a:hover {
+    color: #0056b3; 
+}
+
+/* Rentals and Subscriptions */
+.rentals,
+.subscriptions {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Form Group */
+.u-form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.u-form-group input {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.u-form-group input:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.u-form-group button {
+  width: 100%;
+  background-image:linear-gradient(270deg, rgb(28, 171, 162) 25%, rgb(28, 127, 171));
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 0;
+  border-radius: 8px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.u-form-group button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .carousel {
+    display: none;
+  }
+
+  .hero-box {
+    top: 10%; /* Adjust top position on smaller screens */
+    font-size: 14px; /* Smaller font size */
+    position: relative; /* Hero box will no longer be absolute */
+    margin-top: 20px; /* Add margin between header and hero-box */
+  }
+
+  .hero-box .btn-toggle {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  .hero-box button {
+    font-size: 14px;
+  }
+
+  .lb-header a {
+    font-size: 14px;
+  }
+
+  .u-form-group button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel {
+    display: none;
+  }   
+    .hero-box {
+        font-size: 12px;
+    }
+
+    .hero-box .btn-toggle {
+        font-size: 12px;
+    }
+
+    .hero-box button {
+        font-size: 12px;
+    }
+
+    .lb-header a {
+        font-size: 12px;
+    }
+
+    .u-form-group button {
+        font-size: 12px;
+    }
+}
+
+// Css of How it works
+/* Container for the entire section */
+.hiw-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  //padding: 20px;
+  max-width: 1400px; /* Set max width for the container */
+  margin: 0 auto; /* Center the container horizontally */
+}
+
+/* Container for the "Call to action" section */
+.calltoaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.call-icon img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.call-contact {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Container for the tab buttons */
+.hiw-tabs {
+  width: 100%;
+  margin-bottom: 20px; /* Adds space between tab and content */
+}
+
+.title {
+  display: inline-block;
+  width: 20%;
+  text-align: center;
+  padding: 10px;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.title.active {
+  background-color: #1caba2;
+}
+
+.tab-content-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; /* Center the content with space between items */
+  margin-top: 20px;
+}
+
+/* Each step item */
+.tab-content-section ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  column-gap: 100px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+/* Odd and even list item styles */
+.tab-content-section li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 42%; /* Adjust the width of each item */
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.left-icon img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+}
+
+.img-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.details h5 {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.details p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Responsive Design - For smaller screens, adjust to column layout */
+@media (max-width: 768px) {
+  .tab-content-section li {
+      width: 100%; /* Make the items stack on top of each other */
+      margin-bottom: 20px;
+  }
+
+  .calltoaction {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .call-icon img {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+}

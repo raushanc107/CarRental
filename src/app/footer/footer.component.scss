@@ -1,0 +1,153 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; 
+    margin: 0;
+    padding: 0;
+}
+
+/* Card Styles */
+.page-section-card {
+    background-color: #ffffff; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    margin: 50px auto;
+    max-width: 1300px; 
+    width: 95%;
+}
+
+/* Contact Us Wrapper */
+.contact-us-wrapper {
+    background-color: #f1f1f1; 
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Column Styles */
+.col-md-4 {
+    margin-bottom: 30px;
+}
+
+.content-1 {
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #6c757d; 
+}
+
+
+.desk-center {
+    text-align: center;
+}
+
+.nav-link {
+    font-size: 16px; 
+    font-weight: bold; 
+    color: #333;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #0056b3;
+}
+
+.connect-us{
+    margin-left: 50px;
+}
+/* Social Links */
+.connect-us-title {
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-bottom: 15px;
+    color: #343a40; 
+}
+
+.connect-us-links {
+    display: flex;
+    justify-content: center; 
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 0;
+    list-style-type: none; 
+}
+
+.connect-us-links li {
+    display: inline-block;
+}
+
+.connect-us-links img {
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    background-color: #f8f9fa; 
+    padding: 10px; 
+    transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* App Store and Google Play Download Links */
+.download-app-links a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 15px;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.download-app-links a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.btn-outline-primary,
+.btn-outline-success {
+    border: 2px solid #333;
+    color: #333;
+    font-weight: 600;
+    padding: 12px 25px; 
+    text-align: center;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-success:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contact-us-wrapper {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .revv-logo img {
+        width: 120px;
+    }
+
+    .content-1 {
+        font-size: 12px; 
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .connect-us-title {
+        font-size: 16px;
+    }
+
+    .connect-us-links img {
+        width: 30px; 
+        height: 30px;
+    }
+}
