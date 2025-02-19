@@ -15,10 +15,14 @@ import { Observable } from 'rxjs';
 export class HeaderComponent implements OnInit {
   isHomePage: boolean = false;
   darkMode$: Observable<boolean>;
-
-  constructor(private router: Router, private darkModeService: DarkModeService,private authService: AuthService) {
+  model = inject(NgbModal);
+  user: any;
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private darkModeService: DarkModeService
+  ) {
     this.darkMode$ = this.darkModeService.darkMode$;
-
     this.authService.user.subscribe((data) => {
       this.user = data;
     });
@@ -28,12 +32,10 @@ export class HeaderComponent implements OnInit {
     this.darkModeService.toggle();
   }
   ngOnInit() {
-      this.router.events.subscribe(() => {
+    this.router.events.subscribe(() => {
       this.isHomePage = this.router.url === '/home';
     });
   }
-  model = inject(NgbModal);
-  user: any;
 
   onNavigate(section: string): void {
     const element = document.getElementById(section);

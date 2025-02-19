@@ -26,6 +26,7 @@
     "@types/slick-carousel": "^1.6.40",
     "angular-dark-mode": "^3.1.0",
     "bootstrap": "^5.3.3",
+    "darkmode-angular": "^1.0.1",
     "jquery": "^3.7.1",
     "ngx-slick-carousel": "^19.0.0",
     "rxjs": "~7.8.0",
