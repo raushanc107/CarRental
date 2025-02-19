@@ -1,6 +1,8 @@
-<nav class="navbar nav-bar-flex-layout navbar-expand-lg " style="background-color: #e3f2fd;">
-    <div class="container-fluid">
-        <a class="navbar-brand ms-5" href="home">Car Rentals</a>
+<div class="navcontainer">
+<nav class="navbar nav-bar-flex-layout navbar-expand-lg">
+    
+    <div class="container">
+        <a class="navbar-brand ms-5" href="home"><b>Car Rentals</b></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -23,9 +25,9 @@
                 </li>
 
                 <li class="nav-item">
-                    <a *ngIf="!user" class="nav-link active ms-4 me-4" aria-current="page" (click)="Login()" > <i
+                    <a *ngIf="!user" class="nav-link active ms-4 me-4" aria-current="page" (click)="Login()" style="cursor: pointer;"> <i
                             class="bi bi-person-circle"></i> Login or Signup</a>
-                    <p *ngIf="user">{{user.firstName}} {{user.lastName}}</p>
+                    <p class="nav-link active ms-4 me-4" *ngIf="user">{{user.firstName}} {{user.lastName}}</p>
                 </li>
                 <li class="nav-item">
                     <input type="checkbox" [checked]="darkMode$ | async" (change)="onToggle()" />
@@ -33,4 +35,6 @@
             </ul>
         </div>
     </div>
+
 </nav>
+</div>

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="content">
       <app-car-list-filter></app-car-list-filter>
-      <div class="car-list-container">
+      <div class="car-list-container" style="flex-grow: 1;">
         <app-car-list-topbar></app-car-list-topbar>
         <div class="car-list">
           <app-car-card *ngFor="let car of Cars" [Car]="car" (click)="OpenCarDetail(car.carId,car.cityId)">

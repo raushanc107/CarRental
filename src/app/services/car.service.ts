@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Car } from '../models/Cars.Model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -39,5 +39,9 @@ export class CarService {
 
       //this.AddCars(data);
     });
+  }
+
+  public AddCarsByLocationAndId(cityid: number, id: number): Observable<Car> {
+    return this.http.get<Car>(`${this.APIURL}/${id}/${cityid}`);
   }
 }
