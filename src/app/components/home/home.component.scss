@@ -1,4 +1,4 @@
-.carousel-item {
+  .carousel-item {
     position: relative;
     
     .image-container {
@@ -47,16 +47,16 @@
   z-index: 10;
   background-color: rgba(255, 255, 255, 0.9); 
   color: #333; 
-  padding: 30px 20px;
+  padding: 30px 30px;
   border-radius: 15px;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; 
   width: 90%;
   max-width: 500px; 
   left: 10%; 
   top: 15%; 
   text-align: center;
-  overflow-y: auto; 
+  overflow-y: auto;   
  // max-height: 70vh; /* Prevent overflow */
 }
 
@@ -192,69 +192,13 @@ input[type="text"]:focus {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .carousel {
-    display: none;
-  }
 
-  .hero-box {
-    top: 10%; /* Adjust top position on smaller screens */
-    font-size: 14px; /* Smaller font size */
-    position: relative; /* Hero box will no longer be absolute */
-    margin-top: 20px; /* Add margin between header and hero-box */
-  }
-
-  .hero-box .btn-toggle {
-    font-size: 14px;
-    padding: 8px 15px;
-  }
-
-  .hero-box button {
-    font-size: 14px;
-  }
-
-  .lb-header a {
-    font-size: 14px;
-  }
-
-  .u-form-group button {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 576px) {
-  .carousel {
-    display: none;
-  }   
-    .hero-box {
-        font-size: 12px;
-    }
-
-    .hero-box .btn-toggle {
-        font-size: 12px;
-    }
-
-    .hero-box button {
-        font-size: 12px;
-    }
-
-    .lb-header a {
-        font-size: 12px;
-    }
-
-    .u-form-group button {
-        font-size: 12px;
-    }
-}
 
 // Css of How it works
-/* Container for the entire section */
 .hiw-tab {
   display: flex;
   flex-direction: column;
   align-items: center;
-  //padding: 20px;
   max-width: 1400px; /* Set max width for the container */
   margin: 0 auto; /* Center the container horizontally */
 }
@@ -282,7 +226,7 @@ input[type="text"]:focus {
 /* Container for the tab buttons */
 .hiw-tabs {
   width: 100%;
-  margin-bottom: 20px; /* Adds space between tab and content */
+  margin-bottom: 20px; 
 }
 
 .title {
@@ -352,20 +296,88 @@ input[type="text"]:focus {
   color: #666;
 }
 
-/* Responsive Design - For smaller screens, adjust to column layout */
+@media (max-width: 576px) {
+  .carousel {
+    display: none;
+  }   
+    .hero-box {
+        font-size: 12px;
+        top:0% !important;
+      
+    }
+
+    .hero-box .btn-toggle {
+        font-size: 12px;
+    }
+
+    .hero-box button {
+        font-size: 12px;
+    }
+
+    .lb-header a {
+        font-size: 12px;
+    }
+
+    .u-form-group button {
+        font-size: 12px;
+    }
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-  .tab-content-section li {
-      width: 100%; /* Make the items stack on top of each other */
-      margin-bottom: 20px;
+  .carousel {
+    display: none;
   }
 
-  .calltoaction {
-      flex-direction: column;
-      align-items: flex-start;
+  .hero-box {
+    margin-top:5% ;
+    right:5%;
+    max-width: 80%;
+    font-size: 14px; 
+    position: relative; /* Hero box will no longer be absolute */
   }
 
-  .call-icon img {
-      margin-right: 0;
-      margin-bottom: 10px;
+  .hero-box .btn-toggle {
+    font-size: 14px;
+    padding: 8px 15px;
   }
+
+  .hero-box button {
+    font-size: 14px;
+  }
+
+  .lb-header a {
+    font-size: 14px;
+  }
+
+  .u-form-group button {
+    font-size: 14px;
+  }
+}
+
+// Media query for tabs
+@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: portrait)  {
+ 
+    .hero-box {
+        font-size: 12px;
+        top:5% !important;
+        max-width: 30% !important;
+      
+    }
+
+    .hero-box .btn-toggle {
+        font-size: 12px;
+    }
+
+    .hero-box button {
+        font-size: 12px;
+    }
+
+    .lb-header a {
+        font-size: 12px;
+    }
+
+    .u-form-group button {
+        font-size: 12px;
+    }
 }
