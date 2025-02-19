@@ -1,1 +1,35 @@
-<p>cardetail works!</p>
+<div class="container">
+    <div class="left-section">
+        <div class="card car-details" style="border: none;">
+            <h2>{{ car.carName }}</h2>
+            <p>🚗 {{ car.carFuelType }} | ⚙️ {{ car.carTransmissionType }}</p>
+            <p>📍 {{ car.cityName }}</p>
+            <img [src]="car.carImage" alt="{{ car.carName }}" class="car-image">
+        </div>
+    </div>
+    
+    <div class="right-section">
+        <div class="card subscription-details">
+            <a href="#">Apply Promo Code</a><br>
+            <h3>Subscription tenure: <strong>{{ 1 }} months</strong></h3>
+            <div class="price-details">
+                <p>Monthly fee <span>₹ {{ car.carAmount }}/mo</span></p>
+                <p>Taxes ({{car.carTax}}%) <span>₹ {{ car.carTax }}/mo</span></p>
+                <p class="highlight">Booking charges <span>₹ {{ 1000 }}</span></p>
+                <p>Processing fee (One time) <span>₹ {{ 200 }}</span></p>
+                <p>Refundable deposit (One time) <span>₹ {{ 2100 }}</span></p>
+                <p class="total">Payable amount <span>₹ {{ 20000 }}</span></p>
+            </div>
+            <div class="payment-buttons">
+                
+                <button class="full-payment">Book Now ₹ {{ car.carAmount }} →</button>
+            </div>
+        </div>
+        <div class="card faq">
+            <h3>Frequently asked questions</h3>
+            <ul>
+                <li *ngFor="let faq of faqs">➕ {{ faq }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

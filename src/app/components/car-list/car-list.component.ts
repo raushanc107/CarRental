@@ -8,7 +8,7 @@ import { CarService } from '../../services/car.service';
 import { CityListService } from '../../services/city-list.service';
 import { City } from '../../models/ciltyList.model';
 import { FilterService } from '../../services/filter.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-list',
@@ -26,13 +26,14 @@ export class CarListComponent implements OnInit {
   constructor(
     private carService: CarService,
     private filterService: FilterService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private cityService: CityListService
   ) {
     this.carService.carList.subscribe((data) => {
       this.Cars = data || [];
     });
-  }
-  ngOnInit(): void {
+
     this.filterService.currentselectionSubject.subscribe((data) => {
       if (data.id === 0) {
         this.carService.AddCarsFromAPI();
@@ -40,6 +41,17 @@ export class CarListComponent implements OnInit {
         this.carService.AddCarsByLocation(data.id);
       }
     });
+  }
+
+  ngOnInit(): void {
+    let id = parseInt(this.route.snapshot.paramMap.get('id') || '0');
+    this.cityService.cityList.subscribe((data) => {
+      if (id != 0) {
+        let city = data?.find((e) => e.id == id);
+        this.filterService.currentselectionSubject.next(city!);
+      }
+    });
+    this.cityService.AddCityFromAPI();
   }
 
   OpenCarDetail(carid: number, cityid: number) {

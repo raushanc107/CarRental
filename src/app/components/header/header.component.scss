@@ -1,54 +1,71 @@
-.nav-item:hover .dropdown-menu {
+.navcontainer{
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+  top: 0;
+  box-shadow: 0 5px 10px -8px #ccc;
+  .navbar{
+    height: 60px;
+    border-bottom: 1px solid hsla(0, 0%, 43.9%, .1);
     display: block;
+    margin: 0 auto;
+    text-align: center;
   }
+}
+
+
+// .nav-item:hover .dropdown-menu {
+//     display: block;
+//   }
   
-  .nav-item.dropdown:hover .dropdown-menu {
-    display: block;
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.2s ease-in-out;
-  }
+//   .nav-item.dropdown:hover .dropdown-menu {
+//     display: block;
+//     visibility: visible;
+//     opacity: 1;
+//     transition: opacity 0.2s ease-in-out;
+//   }
   
-  .dropdown-menu {
-    border-radius: 15%;
-    font-size: 12px;
-    font-family: 'Poppins', sans-serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 8px 0;
-    background-color: #360606;
-    transition: all 0.3s ease;
-  }
+//   .dropdown-menu {
+//     border-radius: 15%;
+//     font-size: 12px;
+//     font-family: 'Poppins', sans-serif;
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//     padding: 8px 0;
+//     background-color: #360606;
+//     transition: all 0.3s ease;
+//   }
   
-  .dropdown-menu .dropdown-item {
-    padding: 10px 15px;
-    color: #333;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
+//   .dropdown-menu .dropdown-item {
+//     padding: 10px 15px;
+//     color: #333;
+//     transition: background-color 0.2s ease, color 0.2s ease;
+//   }
 
-.table td a {
-    display: block;
-    padding-right: 50px;
-}
+// .table td a {
+//     display: block;
+//     padding-right: 50px;
+// }
 
-ul li a:hover{
-    color: #0ebaba!important;
-}
-tbody, tr {
-    border-style:none; 
-  }
+// ul li a:hover{
+//     color: #0ebaba!important;
+// }
+// tbody, tr {
+//     border-style:none; 
+//   }
 
-.table td a:hover {
-  color: #0ebaba!important; 
-}
+// .table td a:hover {
+//   color: #0ebaba!important; 
+// }
 
-.nav-item, .navbar-brand{
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-}
+// .nav-item, .navbar-brand{
+//     font-weight: bold;
+//     font-family: 'Poppins', sans-serif;
+// }
 
-.navbar-brand:hover{
-    color: #0ebaba!important;  
-}
+// .navbar-brand:hover{
+//     color: #0ebaba!important;  
+// }
 
 // Dark mode toggle
 .dark-mode-switch {
