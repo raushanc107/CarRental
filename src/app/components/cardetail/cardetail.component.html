@@ -8,5 +8,5 @@
         </div>
     </div>
     
-    <app-booking [car]="car"></app-booking>
+    <app-booking *ngIf="car" [car]="car"></app-booking>
 </div>
