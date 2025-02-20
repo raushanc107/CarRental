@@ -15,6 +15,7 @@ export class AuthService {
 
   private registerUrl = 'https://localhost:7271/api/Account/register';
   private loginUrl = 'https://localhost:7271/api/Account/login';
+
   constructor(private http: HttpClient, private snackbar: MatSnackBar) {
     let user = localStorage.getItem('user');
     if (user != null) {
@@ -60,5 +61,11 @@ export class AuthService {
   login(credentials: LoginModel): Observable<Object> {
     // Using observer object to subscribe
     return this.http.post(this.loginUrl, credentials);
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    this.user.next(undefined);
   }
 }

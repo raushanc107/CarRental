@@ -26,7 +26,13 @@
                 <li class="nav-item">
                     <a *ngIf="!user" class="nav-link active ms-4 me-4" aria-current="page" (click)="Login()" style="cursor: pointer;"> <i
                             class="bi bi-person-circle"></i> Login or Signup</a>
-                    <p class="nav-link active ms-4 me-4" *ngIf="user">{{user.firstName}} {{user.lastName}}</p>
+                    <div ngbDropdown class="d-inline-block" *ngIf="user" >
+                        <p class="nav-link active ms-4 me-4" id="dropdownBasic1" style="cursor: pointer;" ngbDropdownToggle>{{user.firstName}} {{user.lastName}}</p>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                            <button ngbDropdownItem>Dashboard</button>
+                            <button ngbDropdownItem (click)="Logout()">Logout</button>
+                        </div>
+                    </div>
                 </li>
                 <label class="dark-mode-switch">
                     <input type="checkbox" [checked]="darkMode$ | async" (change)="onToggle()" />

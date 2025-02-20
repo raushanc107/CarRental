@@ -1,0 +1,21 @@
+<div class="right-section">
+    <div *ngIf="car" class="card subscription-details">
+        <!-- <a href="#">Apply Promo Code</a><br> -->
+        <h3>Subscription tenure: <strong>{{ subscriptiontenure() }} months</strong></h3>
+        <div class="price-details">
+            <p>Monthly fee <span>{{ car.carAmount |currency:"INR"}}/mo</span></p>
+            <p>Taxes ({{car.carTax}}%) <span>{{ taxAmount |currency:"INR"}}/mo</span></p>
+            <p class="highlight">Booking charges <span>{{ bookingCharge |currency:"INR" }}</span></p>
+            <p>Processing fee (One time) <span>{{ processingFee|currency:"INR" }}</span></p>
+            <p>Refundable deposit (One time) <span>{{ deposit |currency:"INR"}}</span></p>
+            <p class="total">Payable amount <span>{{ totalAmount | currency:"INR"}}</span></p>
+        </div>
+        <div class="payment-buttons">
+            
+            <button *ngIf="!booking" class="full-payment" (click)="Book()">Book Now {{ totalAmount |currency:"INR"}} →</button>
+            <button *ngIf="booking" class="full-payment" >Booking...</button>
+
+        </div>
+    </div>
+    <app-frequentlt-asked-question></app-frequentlt-asked-question>
+</div>

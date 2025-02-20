@@ -1,0 +1,17 @@
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.faq ul {
+    list-style: none;
+    padding: 0;
+}
+.faq li {
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #007bff;
+    border-bottom: 1px solid #ddd;
+}
