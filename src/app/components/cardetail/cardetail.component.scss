@@ -5,7 +5,7 @@
     padding: 20px;
     border-radius: 10px;
 }
-.left-section, .right-section {
+.left-section{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -21,58 +21,4 @@
     width: 100%;
     border-radius: 10px;
 }
-.subscription-details a {
-    color: red;
-    font-weight: bold;
-    text-decoration: none;
-}
-.price-details p {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-    font-size: 16px;
-}
-.highlight {
-    background: #ffe5e5;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.total {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-}
-.payment-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-}
-.pay-now, .full-payment {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-.pay-now {
-    background: #007bff;
-    color: white;
-}
-.full-payment {
-    background: #28a745;
-    color: white;
-}
-.faq ul {
-    list-style: none;
-    padding: 0;
-}
-.faq li {
-    padding: 8px 0;
-    cursor: pointer;
-    font-size: 14px;
-    color: #007bff;
-    border-bottom: 1px solid #ddd;
-}
+

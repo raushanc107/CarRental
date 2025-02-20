@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../../services/auth.service';
 import { DarkModeService } from 'angular-dark-mode';
 import { Observable } from 'rxjs';
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, NgbDropdownModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -46,5 +46,9 @@ export class HeaderComponent implements OnInit {
 
   Login() {
     let modalRef = this.model.open(LoginComponent);
+  }
+
+  Logout() {
+    this.authService.logout();
   }
 }

@@ -3,21 +3,17 @@ import { Car } from '../../models/Cars.Model';
 import { CarService } from '../../services/car.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BookingComponent } from '../booking/booking.component';
 
 @Component({
   selector: 'app-cardetail',
-  imports: [CommonModule],
+  imports: [CommonModule,BookingComponent],
   templateUrl: './cardetail.component.html',
   styleUrl: './cardetail.component.scss',
 })
 export class CardetailComponent implements OnInit {
   car: Car;
-  faqs = [
-    'How can I pay the balance amount in case of pay on delivery?',
-    'What documents do I need?',
-    'How will I know the time of delivery?',
-    'What happens if I fail to make the remaining payment before delivery?',
-  ];
+
   constructor(private carService: CarService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
