@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CityFilterModelComponent } from './city-filter-model/city-filter-model.component';
 import { City } from '../../../models/ciltyList.model';
-import { CityListService } from '../../../services/city-list.service';
 import { FilterService } from '../../../services/filter.service';
 
 @Component({

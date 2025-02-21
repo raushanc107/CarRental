@@ -89,14 +89,21 @@ export class LoginComponent {
     if (this.registerForm.valid) {
       const user: RegisterModel = this.registerForm.value;
 
-      let result = this.authService.register(user);
-      if (result) {
-        this.registerForm.reset();
-      } else {
-        this.snackbar.open('Please fill out all fields correctly', 'Close');
-      }
-    } else {
-      this.snackbar.open('Please fill out all fields correctly', 'Close');
+      this.authService.register(user).subscribe({
+        next: (response) => {
+          this.snackbar.open('User registered successfully', 'Close');
+          this.authService.activeFormSubject.next('login'); // Switch to login form after successful registration
+        },
+        error: (error) => {
+          if (error.status == 200) {
+            this.snackbar.open('User registered successfully', 'Close');
+            this.authService.activeFormSubject.next('login'); // Switch to login form after successful registration
+          } else {
+            this.snackbar.open(`Registration failed. ${error}`, 'Close');
+            console.error(error);
+          }
+        },
+      });
     }
   }
 
