@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarCardComponent } from '../car-card/car-card.component';
 import { CommonModule } from '@angular/common';
 import { CarListTopbarComponent } from '../car-list-topbar/car-list-topbar.component';
@@ -9,7 +9,8 @@ import { CityListService } from '../../services/city-list.service';
 import { City } from '../../models/ciltyList.model';
 import { FilterService } from '../../services/filter.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 @Component({
   selector: 'app-car-list',
   imports: [
@@ -17,12 +18,17 @@ import { ActivatedRoute, Router } from '@angular/router';
     CommonModule,
     CarListTopbarComponent,
     CarListFilterComponent,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.scss',
 })
 export class CarListComponent implements OnInit {
-  Cars: Car[] = [];
+  displayedColumns: string[] = ['carCard'];
+  dataSource = new MatTableDataSource<Car>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(
     private carService: CarService,
     private filterService: FilterService,
@@ -31,7 +37,8 @@ export class CarListComponent implements OnInit {
     private cityService: CityListService
   ) {
     this.carService.carList.subscribe((data) => {
-      this.Cars = data || [];
+      this.dataSource.data = data || [];
+      this.dataSource.paginator = this.paginator;
     });
 
     this.filterService.currentselectionSubject.subscribe((data) => {

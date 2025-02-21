@@ -29,7 +29,7 @@ export class AuthService {
     this.user.next(USER);
   }
 
-  register(user: RegisterModel): boolean {
+  register(user: RegisterModel): Observable<Object> {
     const pauload: any = {
       firstname: user.firstName,
       lastname: user.lastName,
@@ -39,23 +39,7 @@ export class AuthService {
     };
 
     // Send POST request to the backend with the user's registration data
-    this.http.post(this.registerUrl, pauload).subscribe({
-      next: (response) => {
-        this.snackbar.open('User registered successfully', 'Close');
-
-        this.activeFormSubject.next('login'); // Switch to login form after successful registration
-        return true;
-      },
-      error: (error) => {
-        this.snackbar.open(
-          'Registration failed. Please try again later.',
-          'Close'
-        );
-        console.error(error);
-        return false;
-      },
-    });
-    return false;
+    return this.http.post(this.registerUrl, pauload);
   }
 
   login(credentials: LoginModel): Observable<Object> {

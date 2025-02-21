@@ -17,3 +17,19 @@
     flex-direction: column;
     gap: 20px;
 }
+
+
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    padding: 10px 0;
+    overflow:visible;
+  }
+  table{
+    background-color: transparent;
+  }
+
+  mat-paginator{
+    background-color: transparent;
+  }
