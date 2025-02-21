@@ -6,9 +6,10 @@ import { LoginComponent } from '../login/login.component';
 import { AuthService } from '../../services/auth.service';
 import { DarkModeService } from 'angular-dark-mode';
 import { Observable } from 'rxjs';
+import { GoogleTranslateComponent } from '../google-translate/google-translate.component';
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, NgbDropdownModule],
+  imports: [CommonModule, NgbDropdownModule,GoogleTranslateComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
