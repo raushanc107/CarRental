@@ -7,10 +7,7 @@
           <!-- <app-car-card *ngFor="let car of Cars" [Car]="car" (click)="OpenCarDetail(car.carId,car.cityId)">
           </app-car-card> -->
 
-          <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-            showFirstLastButtons
-            aria-label="Select page of cars">
-          </mat-paginator>
+
           
           <table mat-table [dataSource]="dataSource" class="mat-table">
 
@@ -27,7 +24,10 @@
           </table>
           
           <!-- Paginator -->
-
+          <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons
+            aria-label="Select page of cars">
+          </mat-paginator>
           
 
 
