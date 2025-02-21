@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { User } from '../../../models/user';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-user-manage',
@@ -10,17 +12,14 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './user-manage.component.scss'
 })
 export class UserManageComponent {
+  data: User[] = [];
+  constructor(private userService: UserService){
+      this.userService.getUsers().subscribe((data) => {
+        this.data = data || [];
+      });
+      console.log(this.data);
+    }
   title = '';
-  isSidebarCollapsed = false;
-  data = [
-    { id: 1, name: 'Item A', status: 'Active' },
-    { id: 2, name: 'Item B', status: 'Inactive' },
-    { id: 3, name: 'Item C', status: 'Active' },
-  ];
 
-  displayedColumns: string[] = ['id', 'name', 'status'];
-
-  onSidebarToggle() {
-    this.isSidebarCollapsed = !this.isSidebarCollapsed;
-  }
+  displayedColumns: string[] = ['name', 'email','role','status'];
 }

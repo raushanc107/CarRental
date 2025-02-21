@@ -6,7 +6,7 @@ import { inject } from '@angular/core';
 
 export const httpInterceptor: HttpInterceptorFn = (req, next) => {
   console.log('Request Intercepted', req);
-  if (req.url.includes('/api/Booking')) {
+  if (req.url.includes('/api/Booking') || req.url.includes('/api/User')) {
     console.log('inside protected');
     const token = localStorage.getItem('token');
     const updatedreq = req.clone({
