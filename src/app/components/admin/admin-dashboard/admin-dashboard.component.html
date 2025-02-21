@@ -1,0 +1,10 @@
+<div class="charts">
+  <mat-card *ngFor="let chart of charts" class="section-card">
+    <mat-card-header>
+      <mat-card-title>{{ chart.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div echarts [options]="chart.options" class="chart-container"></div>
+    </mat-card-content>
+  </mat-card>
+</div>

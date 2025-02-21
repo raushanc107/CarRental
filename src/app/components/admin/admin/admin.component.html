@@ -1,0 +1,33 @@
+<div class="app-container">
+    <div class="position-relative">
+      <app-sidebar
+        [isSidebarCollapsed]="isSidebarCollapsed"
+        (sidebarToggle)="onSidebarToggle($event)"
+      >
+      </app-sidebar>
+    </div>
+    <main class="content" [ngClass]="{ 'content-expanded': isSidebarCollapsed }">
+      <div class="content-inner">
+        <div id="dashboard" class="dashboard" *ngIf="isdashboardShow">
+          <app-admin-dashboard></app-admin-dashboard>
+        </div>
+
+        <div id="booking" class="dashboard" *ngIf="isBookingShow">
+          <app-booking-list></app-booking-list>
+        </div>
+
+        <div id="invoice" class="dashboard" *ngIf="isInvoiceShow">
+          <app-invoice></app-invoice>
+        </div>
+  
+        <div id="manageCar" class="dashboard" *ngIf="isManageCarShow">
+          <app-car-manage></app-car-manage>
+        </div>
+  
+        <div id="manageuser" class="dashboard" *ngIf="isManageUserShow">
+          <app-user-manage></app-user-manage>
+        </div>
+      </div>
+    </main>
+  </div>
+  
