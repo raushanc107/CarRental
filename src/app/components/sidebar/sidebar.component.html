@@ -1,0 +1,25 @@
+<div class="sidebar" [ngClass]="{ 'sidebar-collapsed': isSidebarCollapsed }">
+    <div class="sidebar-header">
+      <a  class="sidebar-logo">{{
+        isSidebarCollapsed ? "A" : "Admin Panel"
+      }}</a>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <ng-container *ngFor="let item of menuItems">
+          <li class="sidebar-menu-item">
+            <a
+              class="sidebar-item"
+              [ngClass]="{
+                'menu-item-active': item.isOpen
+              }"
+              (click)="toggleMenuItem(item)"
+            >
+              <span class="sidebar-item-text">{{ item.label }}</span>
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  

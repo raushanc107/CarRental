@@ -1,0 +1,42 @@
+.charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.section-card {
+  padding: 16px;
+  text-align: center;
+}
+
+.chart-container {
+  width: 110%;
+  height: 300px;
+}
+
+.user-card {
+  margin: 16px;
+  padding: 40px;
+  text-align: center;
+}
+
+.user-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
