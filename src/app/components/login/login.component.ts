@@ -121,6 +121,10 @@ export class LoginComponent {
             this.router.navigate(['/admin']);
           }
           this.activeModal.close(true);
+          console.log(response);  
+          if (String(response.role).toLowerCase() === 'admin') {
+            this.router.navigateByUrl('/admin');
+          }
         },
         error: (error) => {
           this.snackbar.open('Invalid email or password', 'Close');
