@@ -4,6 +4,7 @@ import { FrequentltAskedQuestionComponent } from '../frequentlt-asked-question/f
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { BookingService } from '../../services/booking.service';
 import { BookingPost } from '../../models/booking.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking',
@@ -22,7 +23,7 @@ export class BookingComponent implements OnInit {
 
   booking: boolean = false;
 
-  constructor(private bookingService: BookingService) {}
+  constructor(private bookingService: BookingService, private router: Router) {}
 
   ngOnInit(): void {
     if (this.car) {
@@ -52,6 +53,7 @@ export class BookingComponent implements OnInit {
       next: (data) => {
         alert('Booking successful');
         this.booking = false;
+        this.router.navigate(['/user']);
       },
       error: (error) => {
         alert('Booking failed');

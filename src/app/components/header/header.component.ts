@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 import { GoogleTranslateComponent } from '../google-translate/google-translate.component';
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, NgbDropdownModule,GoogleTranslateComponent],
+  imports: [CommonModule, NgbDropdownModule, GoogleTranslateComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -51,5 +51,10 @@ export class HeaderComponent implements OnInit {
 
   Logout() {
     this.authService.logout();
+    this.router.navigate(['/home']);
+  }
+
+  GoToUserDashboard() {
+    this.router.navigate(['/user']);
   }
 }

@@ -8,7 +8,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 })
 export class AuthService {
   public user = new BehaviorSubject<any | undefined>(undefined);
-
+  
   public activeFormSubject = new BehaviorSubject<'login' | 'register'>(
     'register'
   );

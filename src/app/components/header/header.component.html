@@ -29,14 +29,14 @@
                     <div ngbDropdown class="d-inline-block" *ngIf="user" >
                         <p class="nav-link active ms-4 me-4" id="dropdownBasic1" style="cursor: pointer;" ngbDropdownToggle>{{user.firstName}} {{user.lastName}}</p>
                         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                            <button ngbDropdownItem>Dashboard</button>
+                            <button *ngIf="user.role==='user'" ngbDropdownItem (click)="GoToUserDashboard()">Dashboard</button>
                             <button ngbDropdownItem (click)="Logout()">Logout</button>
                         </div>
                     </div>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <app-google-translate></app-google-translate>
-                </li>
+                </li> -->
                 <label class="dark-mode-switch">
                     <input type="checkbox" [checked]="darkMode$ | async" (change)="onToggle()" />
                     <span class="slider"></span>
