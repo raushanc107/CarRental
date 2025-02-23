@@ -3,30 +3,56 @@ import { ActivatedRoute, CanActivateFn, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthService } from '../services/auth.service';
-import { firstValueFrom } from 'rxjs';
+import { filter, firstValueFrom, map, Observable, switchMap, take } from 'rxjs';
 
-export const AdminAuthGuard: CanActivateFn = (route, state) => {
+export const AdminAuthGuard: CanActivateFn = (
+  route,
+  state
+): Observable<boolean> => {
+  const authService = inject(AuthService);
   const router = inject(Router);
-  const userString = localStorage.getItem('user');
-  const user = userString ? JSON.parse(userString) : undefined;
-  if (user && user.token && user.role === 'Admin') {
-    return true;
-  } else {
-    router.navigate(['/access-denied']);
-    return false;
-  }
+
+  return authService.loginComplete.pipe(
+    // Wait until the login process is complete.
+    filter((complete) => complete === true),
+    take(1),
+    // Once complete, get the current user value.
+    switchMap(() => authService.user),
+    take(1),
+    map((user) => {
+      if (user && user.token && user.role === 'Admin') {
+        return true;
+      } else {
+        router.navigate(['/access-denied']);
+        return false;
+      }
+    })
+  );
 };
 
-export const UserAuthGuard: CanActivateFn = (route, state) => {
+export const UserAuthGuard: CanActivateFn = (
+  route,
+  state
+): Observable<boolean> => {
+  const authService = inject(AuthService);
   const router = inject(Router);
-  const userString = localStorage.getItem('user');
-  const user = userString ? JSON.parse(userString) : undefined;
-  if (user && user.token && user.role === 'user') {
-    return true;
-  } else {
-    router.navigate(['/access-denied']);
-    return false;
-  }
+
+  return authService.loginComplete.pipe(
+    // Wait until loginComplete emits true.
+    filter((complete) => complete === true),
+    take(1),
+    // Now switch to the user observable.
+    switchMap(() => authService.user),
+    take(1),
+    map((user) => {
+      if (user && user.role === 'user') {
+        return true;
+      } else {
+        router.navigate(['/access-denied']);
+        return false;
+      }
+    })
+  );
 };
 
 export const GeneralGuard: CanActivateFn = (route, state) => {
@@ -49,25 +75,32 @@ export const GeneralGuard: CanActivateFn = (route, state) => {
 
 export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
-  const userString = localStorage.getItem('user');
-  const user = userString ? JSON.parse(userString) : undefined;
+  const authService = inject(AuthService);
+  let userString = localStorage.getItem('user');
+  let user = userString ? JSON.parse(userString) : undefined;
   if (user && user.token) {
+    authService.updateUser(user);
     return true;
   } else {
-    let model = inject(NgbModal);
-    let modalRef = model.open(LoginComponent);
+    const modalService = inject(NgbModal);
+    const modalRef = modalService.open(LoginComponent);
     return modalRef.result
       .then((result) => {
         if (result) {
-          console.log('auth guard model value post', result);
-          return result;
+          // After login, check localStorage again
+          userString = localStorage.getItem('user');
+          user = userString ? JSON.parse(userString) : undefined;
+          if (user && user.token) {
+            authService.updateUser(user);
+            return true;
+          } else {
+            return false;
+          }
         } else {
-          console.log('auth guard model value post', result);
           return false;
         }
       })
       .catch(() => {
-        console.log('Modal dismissed');
         return false;
       });
   }

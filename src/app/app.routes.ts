@@ -9,6 +9,7 @@ import {
 } from './gaurds/Auth.guard';
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -41,4 +42,5 @@ export const routes: Routes = [
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'access-denied', component: AccessDeniedComponent },
+  { path: '**', component: NotFoundComponent },
 ];

@@ -8,7 +8,9 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 })
 export class AuthService {
   public user = new BehaviorSubject<any | undefined>(undefined);
-  
+  // New subject to signal when the login process is complete.
+  public loginComplete = new BehaviorSubject<boolean>(false);
+
   public activeFormSubject = new BehaviorSubject<'login' | 'register'>(
     'register'
   );
@@ -27,23 +29,22 @@ export class AuthService {
 
   public updateUser(USER: any | undefined) {
     this.user.next(USER);
+    // Signal that the login process is complete.
+    this.loginComplete.next(!!USER);
   }
 
   register(user: RegisterModel): Observable<Object> {
-    const pauload: any = {
+    const payload: any = {
       firstname: user.firstName,
       lastname: user.lastName,
       password: user.password,
       confirmPassword: user.password,
       email: user.email,
     };
-
-    // Send POST request to the backend with the user's registration data
-    return this.http.post(this.registerUrl, pauload);
+    return this.http.post(this.registerUrl, payload);
   }
 
   login(credentials: LoginModel): Observable<Object> {
-    // Using observer object to subscribe
     return this.http.post(this.loginUrl, credentials);
   }
 
@@ -51,5 +52,6 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     this.user.next(undefined);
+    this.loginComplete.next(false);
   }
 }

@@ -5,10 +5,17 @@ import { NgxEchartsModule, NGX_ECHARTS_CONFIG } from 'ngx-echarts';
 import { EChartsOption } from 'echarts';
 import { InvoiceComponent } from '../shared/invoice/invoice.component';
 import { BookingListComponent } from '../shared/booking-list/booking-list.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-userdashboard',
-  imports: [MatCardModule, CommonModule, NgxEchartsModule,BookingListComponent,InvoiceComponent],
+  imports: [
+    MatCardModule,
+    CommonModule,
+    NgxEchartsModule,
+    BookingListComponent,
+    InvoiceComponent,
+  ],
   templateUrl: './userdashboard.component.html',
   styleUrl: './userdashboard.component.scss',
   providers: [
@@ -19,9 +26,11 @@ import { BookingListComponent } from '../shared/booking-list/booking-list.compon
   ],
 })
 export class UserdashboardComponent {
-  user = {
-    name: 'John Doe',
-    role: 'Software Engineer',
-    image: 'https://i.pravatar.cc/150?img=5',
-  };
+  user: any;
+
+  constructor(private authservice: AuthService) {
+    this.authservice.user.subscribe((data) => {
+      this.user = data;
+    });
+  }
 }

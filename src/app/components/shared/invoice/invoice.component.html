@@ -3,46 +3,55 @@
     <mat-card-title>{{ title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>Invoice Id</th>
         <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
 
+      <ng-container matColumnDef="useremail">
+        <th mat-header-cell *matHeaderCellDef>User</th>
+        <td mat-cell *matCellDef="let element">{{ element.useremail }}</td>
+      </ng-container>
+
       <ng-container matColumnDef="monthlyfees">
         <th mat-header-cell *matHeaderCellDef>Monhly Fees</th>
-        <td mat-cell *matCellDef="let element">{{ element.monthlyFees }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.monthlyFees | currency:"INR" }}</td>
       </ng-container>
 
       <ng-container matColumnDef="taxpercentage">
-        <th mat-header-cell *matHeaderCellDef>Tax Percenatee</th>
-        <td mat-cell *matCellDef="let element">{{ element.taxPercentage }}</td>
+        <th mat-header-cell *matHeaderCellDef>Tax (%)</th>
+        <td mat-cell *matCellDef="let element">{{ element.taxPercentage }}%</td>
       </ng-container>
 
       <ng-container matColumnDef="taxAmount">
         <th mat-header-cell *matHeaderCellDef>Tax Amount</th>
-        <td mat-cell *matCellDef="let element">{{ element.taxAmount }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.taxAmount| currency:"INR" }}</td>
       </ng-container>
 
       <ng-container matColumnDef="bookingCharge">
         <th mat-header-cell *matHeaderCellDef>Booking Charge</th>
-        <td mat-cell *matCellDef="let element">{{ element.bookingCharge }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.bookingCharge | currency:"INR"}}</td>
       </ng-container>
 
       <ng-container matColumnDef="totalPayableAmount">
         <th mat-header-cell *matHeaderCellDef>Total Pay</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.totalPayableAmount }}
+          {{ element.totalPayableAmount| currency:"INR" }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="cretedon">
         <th mat-header-cell *matHeaderCellDef>Invoice Date</th>
-        <td mat-cell *matCellDef="let element">{{ element.cretedon }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.cretedon | date:'dd/MM/yyyy hh:mm a'}}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of cars">
+    </mat-paginator>
   </mat-card-content>
 </mat-card>

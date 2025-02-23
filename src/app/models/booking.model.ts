@@ -17,6 +17,7 @@ export class BookingPost {
 export interface BookingGet {
   id: number;
   userid: number;
+  useremail: string;
   car: Car;
   city: City;
   subscriptiontenure: number;
