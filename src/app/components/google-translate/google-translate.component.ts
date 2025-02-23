@@ -25,7 +25,7 @@ export class GoogleTranslateComponent implements OnInit {
   googleTranslateElementInit() {
     new google.translate.TranslateElement(
       {
-        pageLanguage: 'hi',
+        pageLanguage: 'en',
       },
       'google_translate_element'
     );
