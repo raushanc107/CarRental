@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   public updateUser(user: User): Observable<User> {
-    return this.http.post<User>(this.APIURL + '/deactivate', user);
+    return this.http.get<User>(this.APIURL + '/deactivate', { params: { userid: user.id }});
   }
 
   public getUsers(): Observable<User[]> {

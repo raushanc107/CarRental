@@ -11,7 +11,6 @@ import { EChartsOption } from 'echarts';
   imports: [
     NgxEchartsModule,
     CommonModule,
-    SidebarComponent,
     MatCardModule,
     MatTableModule,
   ],
