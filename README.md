@@ -1,59 +1,61 @@
-# CarRental
+# Car Rental
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+## Overview
+This project consists of a backend API built with .NET Core MVC (API) and a frontend built with Angular. The following instructions outline how to clone, build, and run both the API and Angular applications.
 
-## Development server
+## Prerequisites
+- [.NET Core SDK 7](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- [Node.js and npm](https://nodejs.org/)
+- [Angular CLI](https://angular.io/cli) (Install globally using: `npm install -g @angular/cli`)
+- [Git](https://git-scm.com/downloads)
 
-To start a local development server, run:
+## Setup Instructions
 
+### 1. Clone the API Repository
+Clone the API repository from GitHub:
+```bash
+git clone https://github.com/raushanc107/KhatabookAPI.git
+```
+
+#### Navigate to the cloned directory:
+```bash
+cd KhatabookAPI
+```
+
+### 2. Build and Run the .NET Core MVC API Application
+
+- 1.Restore the project dependencies:
+```bash
+dotnet restore
+```
+
+- 2.Build the project:
+```bash
+dotnet build
+```
+
+- 3.Run the application:
+```bash
+dotnet run
+```
+The API should now be running on its default port (usually http://localhost:7271 or as configured in the project).
+
+### 3. Set Up the Angular Application
+
+-  1.Navigate to the Angular project directory (if it's in a separate folder, switch to that folder).
+-  2.Install the Angular project dependencies:
+     
+  ``` bash
+  npm install --force
+  ```
+
+### 4. Run the Angular Application
+Start the Angular development server by running:
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open your browser and navigate to http://localhost:4200 to view the application.
 
-## Code scaffolding
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
