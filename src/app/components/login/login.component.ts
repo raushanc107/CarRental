@@ -3,12 +3,11 @@ import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
-  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
@@ -33,10 +32,11 @@ export interface LoginModel {
 })
 export class LoginComponent {
   activeForm: 'login' | 'register';
-  // Reactive forms
   registerForm: FormGroup;
   loginForm: FormGroup;
   activeModal = inject(NgbActiveModal);
+  isSignupActive = false;
+
   constructor(
     private router: Router,
     private snackbar: MatSnackBar,
@@ -46,7 +46,7 @@ export class LoginComponent {
     this.authService.activeFormSubject.subscribe((data) => {
       this.activeForm = data;
     });
-    // Initialize register form with regex validation
+
     this.registerForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -64,7 +64,6 @@ export class LoginComponent {
       ]),
     });
 
-    // Initialize login form with regex validation
     this.loginForm = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -81,9 +80,17 @@ export class LoginComponent {
     });
   }
 
-  toggleForm(form: 'login' | 'register') {
-    this.authService.activeFormSubject.next(form);
+  toggleSignup() {
+    this.isSignupActive = true;
   }
+
+  toggleLogin() {
+    this.isSignupActive = false;
+  }
+
+  // toggleForm(form: 'login' | 'register') {
+  //   this.authService.activeFormSubject.next(form);
+  // }
 
   register() {
     if (this.registerForm.valid) {
@@ -92,12 +99,14 @@ export class LoginComponent {
       this.authService.register(user).subscribe({
         next: (response) => {
           this.snackbar.open('User registered successfully', 'Close');
-          this.authService.activeFormSubject.next('login'); // Switch to login form after successful registration
+          //this.authService.activeFormSubject.next('login');
+          this.toggleLogin();
         },
         error: (error) => {
           if (error.status == 200) {
             this.snackbar.open('User registered successfully', 'Close');
-            this.authService.activeFormSubject.next('login'); // Switch to login form after successful registration
+            //this.authService.activeFormSubject.next('login');
+            this.toggleLogin();
           } else {
             this.snackbar.open(`Registration failed. ${error}`, 'Close');
             console.error(error);
@@ -113,15 +122,14 @@ export class LoginComponent {
       this.authService.login(credentials).subscribe({
         next: (response: any) => {
           this.snackbar.open('Login successful', 'Close');
-          // Store JWT token (if you are using JWT for authentication)
-          localStorage.setItem('token', response.token); // Store the JWT token
-          localStorage.setItem('user', JSON.stringify(response)); // Store the JWT token
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('user', JSON.stringify(response));
           this.authService.updateUser(response);
           if (String(response.role).toLowerCase() === 'admin') {
             this.router.navigate(['/admin']);
           }
           this.activeModal.close(true);
-          console.log(response);  
+          console.log(response);
           if (String(response.role).toLowerCase() === 'admin') {
             this.router.navigateByUrl('/admin');
           }
