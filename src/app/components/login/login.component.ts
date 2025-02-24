@@ -117,6 +117,9 @@ export class LoginComponent {
           localStorage.setItem('token', response.token); // Store the JWT token
           localStorage.setItem('user', JSON.stringify(response)); // Store the JWT token
           this.authService.updateUser(response);
+          if (String(response.role).toLowerCase() === 'admin') {
+            this.router.navigate(['/admin']);
+          }
           this.activeModal.close(true);
           console.log(response);  
           if (String(response.role).toLowerCase() === 'admin') {

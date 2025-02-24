@@ -3,12 +3,15 @@
     <mat-card-title>{{title}}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <table mat-table [dataSource]="data" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
         <td mat-cell *matCellDef="let element">{{ element.id }}</td>
       </ng-container>
-
+      <ng-container matColumnDef="useremail">
+        <th mat-header-cell *matHeaderCellDef>user</th>
+        <td mat-cell *matCellDef="let element">{{ element.useremail }}</td>
+      </ng-container>
       <ng-container matColumnDef="car">
         <th mat-header-cell *matHeaderCellDef>Car</th>
         <td mat-cell *matCellDef="let element">{{ element.car.carName }}</td>
@@ -17,12 +20,16 @@
       <ng-container matColumnDef="amount">
         <th mat-header-cell *matHeaderCellDef>Amount</th>
         <td mat-cell *matCellDef="let element">
-          {{ element.totalPayableAmount }}
+          {{ element.totalPayableAmount |currency:"INR" }}
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of cars">
+    </mat-paginator>
   </mat-card-content>
 </mat-card>

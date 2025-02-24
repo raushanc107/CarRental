@@ -1,9 +1,9 @@
 <div>
   <mat-card class="user-card">
-    <mat-card-header>
-      <img [src]="user.image" alt="{{ user.name }}" class="user-image" />
+    <mat-card-header *ngIf="user">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" alt="{{ user.name }}" class="user-image" />
       <div class="user-info">
-        <mat-card-title>Welcome : {{ user.name }}</mat-card-title>
+        <mat-card-title>Welcome : {{ user.firstName }} {{user.lastName}}</mat-card-title>
       </div>
       <mat-card-content>
         <div></div>

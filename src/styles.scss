@@ -15,6 +15,12 @@ html {
 }/* You can add global styles to this file, and also import other style files */
 body{
     font-family: 'Roboto', sans-serif;
+    top: 0px !important;
+   .skiptranslate{
+    iframe{
+      display: none;
+    }
+   }
 }
 body.dark-mode {
   background-color: #414243;
