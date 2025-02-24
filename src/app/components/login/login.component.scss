@@ -1,4 +1,30 @@
 
+.lb-header{
+  position:relative;
+  cursor: pointer !important;
+  color: #00415d;
+  margin: 5px 5px 10px 5px;
+  padding-bottom:10px;
+  border-bottom: 5px solid #fff;
+  text-align:center;
+  height:30px;
+}
+.lb-header a{
+  margin: 0 25px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 15px;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.lb-header .active{
+  color: #029f5b;
+  font-size: 18px;
+}
+  
   /* Header */
   .heading {
     background-color: #4e4b91;  /* Dark purple background */

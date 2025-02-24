@@ -1,9 +1,14 @@
+<div class="loginsignUp-container">
+  <div class="lb-header">
+    <a (click)="toggleLogin()" class="btn-toggle"> Login</a>
+    <a (click)="toggleSignup()" class="btn-toggle">Sign Up</a>
+  </div>
 
-  <div class="loginsignUp-container">
+  <div class="email-signup" *ngIf="isSignupActive">
     <!-- Register Form -->
-    <form [formGroup]="registerForm" *ngIf="activeForm === 'register'" (ngSubmit)="register()">
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
       <h2>REGISTER</h2>
-  
+
       <!-- First Name Field -->
       <div class="form-group">
         <input type="text" formControlName="firstName" placeholder="First Name" />
@@ -11,7 +16,7 @@
           First name is required
         </div>
       </div>
-  
+
       <!-- Last Name Field -->
       <div class="form-group">
         <input type="text" formControlName="lastName" placeholder="Last Name" />
@@ -19,7 +24,7 @@
           Last name is required
         </div>
       </div>
-  
+
       <!-- Email Field -->
       <div class="form-group">
         <input type="email" formControlName="email" placeholder="Email" />
@@ -27,7 +32,7 @@
           Valid email is required
         </div>
       </div>
-  
+
       <!-- Password Field -->
       <div class="form-group">
         <input type="password" formControlName="password" placeholder="Password" />
@@ -35,18 +40,21 @@
           Password must contain at least 8 characters, one letter, one number, and one special character
         </div>
       </div>
-  
+
       <!-- Submit Button -->
       <button type="submit" [disabled]="registerForm.invalid">Register</button>
-  
+
       <!-- Toggle to Login Form -->
-      <p (click)="toggleForm('login')">Already have an account? <span class="highlighted">LOGIN</span></p>
+      <!-- <p (click)="toggleForm('login')">Already have an account? <span class="highlighted">LOGIN</span></p> -->
     </form>
-  
+  </div>
+
+
+  <div class="email-login" *ngIf="!isSignupActive">
     <!-- Login Form -->
-    <form [formGroup]="loginForm" *ngIf="activeForm === 'login'" (ngSubmit)="login()">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
       <h2>Login</h2>
-  
+
       <!-- Email Field -->
       <div class="form-group">
         <input type="email" formControlName="email" placeholder="Email" />
@@ -54,7 +62,7 @@
           Valid email is required
         </div>
       </div>
-  
+
       <!-- Password Field -->
       <div class="form-group">
         <input type="password" formControlName="password" placeholder="Password" />
@@ -62,12 +70,12 @@
           Password must contain at least 8 characters, one letter, one number, and one special character
         </div>
       </div>
-  
+
       <!-- Submit Button -->
       <button type="submit" [disabled]="loginForm.invalid">Login</button>
-  
+
       <!-- Toggle to Register Form -->
-      <p (click)="toggleForm('register')">Don't have an account? <span class="highlighted">REGISTER</span></p>
+      <!-- <p (click)="toggleForm('register')">Don't have an account? <span class="highlighted">REGISTER</span></p> -->
     </form>
   </div>
-  
+</div>
