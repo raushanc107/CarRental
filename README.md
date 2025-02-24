@@ -34,11 +34,16 @@ dotnet restore
 dotnet build
 ```
 
-- 3.Run the application:
+- 3.Ensure you have trusted your local development certificate by running:
 ```bash
-dotnet run
+dotnet dev-certs https --trust
 ```
-The API should now be running on its default port (usually http://localhost:7271 or as configured in the project).
+- 4.Run the application
+```bash
+dotnet run --urls "https://localhost:7271"
+```
+
+The API should now be running on its default port (usually https://localhost:7271 or as configured in the project).
 
 ### 3. Set Up the Angular Application
 
