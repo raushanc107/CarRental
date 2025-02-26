@@ -64,3 +64,7 @@ Then open your browser and navigate to http://localhost:4200 to view the applica
 
 
 
+# Admin Credential
+- UserName: admin@gmail.com
+- Password: admin@123
+
